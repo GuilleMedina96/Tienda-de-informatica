@@ -1,0 +1,133 @@
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+
+.formulario {
+    max-width: 400px;
+    margin: auto;
+    padding: 50px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.formulario h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.formulario button[type="submit"] {
+    background-color: #0056b3;
+    color: #fff;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.formulario button[type="submit"]:hover {
+    background-color: #007bff;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+/* Estilo para el botón */
+.boton {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px; /* Agregamos margen para separar los botones */
+}
+
+/* Estilo para el botón al pasar el cursor por encima */
+.boton:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo específico para el botón "Volver atrás" */
+.boton-volver {
+    background-color:  #007bff;
+    color: #fff;
+}
+
+/* Estilo para el botón "Volver atrás" al pasar el cursor por encima */
+.boton-volver:hover {
+    background-color:#0056b3;
+}
+
+
+.mensaje-exito {
+    color: #0aa710; /* Cambiamos el color del texto a blanco */
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+.mensaje-error {
+   
+    color: #b30404; /* Cambiamos el color del texto a blanco */
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center; /* Centra el texto horizontalmente */
+}
