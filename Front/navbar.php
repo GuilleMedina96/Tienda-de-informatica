@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechMart - Tienda de Informática</title>
-    <link rel="stylesheet" href="path/to/estilos.css"> <!-- Asegúrate de que esta ruta sea correcta -->
+    <link rel="stylesheet" href="path/to/estilos.css"> <!-- Verifica que esta ruta sea correcta -->
 </head>
 
 <body>
@@ -16,6 +16,9 @@
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="categorias.php">Productos</a></li>
                 <li><a href="carrito.php">Carrito de Compras</a></li>
+                <!-- Corregido: cierre del <li> -->
+                <li><a href="../php/registro.php">Registro</a></li>
+                <li><a href="formulario_login.php">Iniciar sesión</a></li>
                 <?php
                 // Iniciar sesión si no está ya iniciada
                 if (session_status() == PHP_SESSION_NONE) {
@@ -32,10 +35,6 @@
                     if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                         echo '<li><a href="admin_dashboard.php">Panel de Administración</a></li>';
                     }
-                } else {
-                    // Mostrar enlaces para usuarios no autenticados
-                    echo '<li><a href="registro.php">Registro</a></li>';
-                    echo '<li><a href="formulario_login.php">Iniciar sesión</a></li>';
                 }
                 ?>
             </ul>
