@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración - TechMart</title>
-    <link rel="stylesheet" href=".\estilos\carrito.css">
-    <link rel="stylesheet" href=".\estilos\navbar.css">
+    <link rel="stylesheet" href="../Front\estilos\carrito.css">
+    <link rel="stylesheet" href="../Front\estilos\navbar.css">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
                 <li><a href="admin_products.php">Productos</a></li>
                 <li><a href="admin_orders.php">Órdenes</a></li>
                 <li><a href="admin_reviews.php">Reseñas</a></li>
-                <li><a href="cerrar_sesion.php">Cerrar Sesión</a></li>
+                <li><a href="../Front/cerrar_sesion.php">Cerrar Sesión</a></li>
             </ul>
         </nav>
     </header>
@@ -26,10 +26,13 @@
     <main>
         <h2>Bienvenido, Administrador</h2>
         <p>Desde aquí puedes gestionar los productos, órdenes y reseñas de la tienda.</p>
-        <a href="admin_crear_producto.php" class="boton">Agregar Nuevo Producto</a>
-        <a href="admin_gestion_producto.php" class="boton">Gestionar Productos</a>
-        <a href="admin_gestionar_ordenes.php" class="boton">Gestionar Órdenes</a>
-        <a href="admin_gestionar_reseñas.php" class="boton">Gestionar Reseñas</a>
+
+        <div class="botones-administracion">
+            <a href="admin_productos/crear_producto.php" class="boton">Agregar Nuevo Producto</a>
+            <a href="admin_productos/modificar_producto.php" class="boton">Modificar Producto</a>
+            <a href="admin_productos/eliminar_producto.php" class="boton">Eliminar Producto</a>
+            <a href="admin_productos/ver_productos.php" class="boton">Ver Todos los Productos</a>
+        </div>
     </main>
 
     <footer>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechMart - Tienda de Informática</title>
-    <link rel="stylesheet" href="path/to/estilos.css"> <!-- Asegúrate de que esta ruta sea correcta -->
+    <link rel="stylesheet" href="estilos/navbar.css"> <!-- Asegúrate de que esta ruta sea correcta -->
 </head>
 
 <body>
@@ -30,7 +30,7 @@
 
                     // Verificar si el usuario es administrador y mostrar enlaces de administración
                     if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
-                        echo '<li><a href="admin_dashboard.php">Panel de Administración</a></li>';
+                        echo '<li><a href="../administrador/admin_dashboard.php">Panel de Administración</a></li>';
                     }
                 } else {
                     // Mostrar enlaces para usuarios no autenticados

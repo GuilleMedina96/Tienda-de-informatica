@@ -10,6 +10,8 @@ require_once '../Controladores/conexion.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestionar Órdenes - TechMart</title>
     <link rel="stylesheet" href="carrito.css">
+    <link rel="stylesheet" href="../Front\estilos\carrito.css">
+    <link rel="stylesheet" href="../Front\estilos\navbar.css">
 </head>
 
 <body>
