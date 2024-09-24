@@ -34,7 +34,7 @@ if (isset($_SESSION['usuario_id'])) {
                 if ($usuario_clave_nueva === $usuario_clave_confirmacion) {
                     // Hashea la nueva contraseña
                     $hash_clave_nueva = password_hash($usuario_clave_nueva, PASSWORD_DEFAULT);
-                    
+
                     // Llama a la función modificarClave para actualizar la contraseña
                     if ($repositorio->modificarClave($usuarioID, null, null, null, null, $hash_clave_nueva, $usuario_clave_actual)) {
                         $mensaje = "Contraseña actualizada con éxito.";
@@ -60,4 +60,3 @@ if (isset($_SESSION['usuario_id'])) {
 
 // Cerramos la conexión fuera del bucle condicional
 $conexion = null;
-?>
