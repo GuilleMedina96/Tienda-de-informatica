@@ -1,15 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require $_SERVER['DOCUMENT_ROOT'] . '/Tienda de informatica/Controladores/conexion.php';
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+// Conectar a la base de datos
+$conn = conexion();
 
-<body>
+// Verificar si se ha proporcionado un ID de producto
+if (isset($_GET['producto_id'])) {
+    $producto_id = $_GET['producto_id'];
 
-    <h1>HOLA</h1>
-</body>
+    // Eliminar el producto
+    $stmt = $conn->prepare("DELETE FROM productos WHERE producto_id = ?");
+    $stmt->execute([$producto_id]);
 
-</html>
+    echo "Producto eliminado exitosamente.";
+} else {
+    die("ID de producto no proporcionado.");
+}
+
+// Redirigir a la página de ver productos después de eliminar
+header("Location: ver_productos.php");
+exit();
