@@ -1,11 +1,13 @@
 <?php
+session_start(); // Iniciar sesión
+
 require $_SERVER['DOCUMENT_ROOT'] . '/Tienda de informatica/Controladores/conexion.php';
 
 // Conectar a la base de datos
 $conn = conexion();
 
 // Obtener todos los productos
-$stmt = $conn->prepare("SELECT * FROM producto"); // Asegúrate de que el nombre de la tabla sea correcto
+$stmt = $conn->prepare("SELECT * FROM producto");
 $stmt->execute();
 $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -18,11 +20,25 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver Productos</title>
     <link rel="stylesheet" href="../Front/estilos/ver_productos.css">
+    <script>
+        function confirmarEliminacion() {
+            return confirm('¿Estás seguro de que deseas eliminar este producto?');
+        }
+    </script>
 </head>
 
 <body>
     <div class="container">
         <h2>Lista de Productos</h2>
+
+        <?php if (isset($_SESSION['mensaje_exito'])): ?>
+            <div class="mensaje-exito">
+                <?php echo $_SESSION['mensaje_exito']; ?>
+                <?php unset($_SESSION['mensaje_exito']); // Limpiar el mensaje después de mostrarlo 
+                ?>
+            </div>
+        <?php endif; ?>
+
         <table>
             <thead>
                 <tr>
@@ -47,8 +63,8 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <img src="../Front/<?php echo htmlspecialchars($producto['producto_foto']); ?>" alt="Foto de <?php echo htmlspecialchars($producto['producto_nombre']); ?>" width="100">
                         </td>
                         <td>
-                            <a class="btn-modificar" href="modificar_producto.php?producto_id=<?php echo $producto['producto_id']; ?>">Modificar</a>
-                            <a class="btn-eliminar" href="eliminar_producto.php?producto_id=<?php echo $producto['producto_id']; ?>" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">Eliminar</a>
+                            <a href="admin_productos/modificar_producto.php?producto_id=<?php echo htmlspecialchars($producto['producto_id']); ?>">Modificar</a>
+                            <a class="btn-eliminar" href="admin_productos/eliminar_producto.php?producto_id=<?php echo htmlspecialchars($producto['producto_id']); ?>" onclick="return confirmarEliminacion();">Eliminar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

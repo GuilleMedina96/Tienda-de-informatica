@@ -36,6 +36,21 @@
             background-color: #45a049;
             /* Color al pasar el mouse */
         }
+
+        .mensaje-exito {
+            background-color: #d4edda;
+            /* Color de fondo para el mensaje de éxito */
+            color: #155724;
+            /* Color del texto */
+            border: 1px solid #c3e6cb;
+            /* Borde del mensaje */
+            padding: 10px;
+            /* Espaciado interno */
+            margin-bottom: 20px;
+            /* Espaciado inferior */
+            border-radius: 5px;
+            /* Bordes redondeados */
+        }
     </style>
 </head>
 
@@ -45,7 +60,6 @@
         <nav>
             <ul>
                 <li><a href="admin_dashboard.php">Inicio</a></li>
-                <li><a href="admin_products.php">Productos</a></li>
                 <li><a href="admin_orders.php">Órdenes</a></li>
                 <li><a href="admin_reviews.php">Reseñas</a></li>
                 <li><a href="../Front/cerrar_sesion.php">Cerrar Sesión</a></li>
@@ -56,6 +70,14 @@
     <main>
         <h2>Bienvenido, Administrador</h2>
         <p>Desde aquí puedes gestionar los productos, órdenes y reseñas de la tienda.</p>
+
+        <?php if (isset($_SESSION['mensaje_exito'])): ?>
+            <div class="mensaje-exito">
+                <?php echo $_SESSION['mensaje_exito']; ?>
+                <?php unset($_SESSION['mensaje_exito']); // Limpiar el mensaje después de mostrarlo 
+                ?>
+            </div>
+        <?php endif; ?>
 
         <form action="admin_dashboard.php" method="POST">
             <div class="botones-administracion">
