@@ -60,8 +60,6 @@
         <form action="admin_dashboard.php" method="POST">
             <div class="botones-administracion">
                 <button type="submit" name="accion" value="crear_producto" class="boton">Agregar Nuevo Producto</button>
-                <button type="submit" name="accion" value="modificar_producto" class="boton">Modificar Producto</button>
-                <button type="submit" name="accion" value="eliminar_producto" class="boton">Eliminar Producto</button>
                 <button type="submit" name="accion" value="ver_productos" class="boton">Ver Todos los Productos</button>
             </div>
         </form>

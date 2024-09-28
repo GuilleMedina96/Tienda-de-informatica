@@ -5,7 +5,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/Tienda de informatica/Controladores/conexi
 $conn = conexion();
 
 // Obtener todos los productos
-$stmt = $conn->prepare("SELECT * FROM productos"); // Cambié "producto" a "productos" para que coincida con el nombre correcto de la tabla
+$stmt = $conn->prepare("SELECT * FROM producto"); // Asegúrate de que el nombre de la tabla sea correcto
 $stmt->execute();
 $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -44,7 +44,7 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo htmlspecialchars($producto['producto_precio']); ?></td>
                         <td><?php echo htmlspecialchars($producto['producto_stock']); ?></td>
                         <td>
-                            <img src="../uploads/<?php echo htmlspecialchars($producto['producto_foto']); ?>" alt="Foto" width="100">
+                            <img src="../Front/<?php echo htmlspecialchars($producto['producto_foto']); ?>" alt="Foto de <?php echo htmlspecialchars($producto['producto_nombre']); ?>" width="100">
                         </td>
                         <td>
                             <a class="btn-modificar" href="modificar_producto.php?producto_id=<?php echo $producto['producto_id']; ?>">Modificar</a>
