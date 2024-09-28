@@ -47,6 +47,17 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </table>
     <br>
     <a href="crear_producto.php">Agregar Nuevo Producto</a>
+    <script>
+        function validarModificarProducto() {
+            const productoID = document.getElementById("producto_id").value;
+            if (!productoID) {
+                alert("Por favor, seleccione un producto para modificar.");
+                return false; // Impide el envío del formulario
+            }
+            return true; // Permite el envío del formulario
+        }
+    </script>
+
 </body>
 
 </html>
