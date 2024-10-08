@@ -11,7 +11,7 @@ require_once '../Controladores/conexion.php';
     <title>Gestionar Órdenes - TechMart</title>
     <link rel="stylesheet" href="carrito.css">
     <link rel="stylesheet" href="../Front\estilos\carrito.css">
-    <link rel="stylesheet" href="../Front\estilos\navbar.css">
+    <link rel="stylesheet" href="../Front\estilos\navbarra.css">
 </head>
 
 <body>

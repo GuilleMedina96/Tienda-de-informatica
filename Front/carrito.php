@@ -34,8 +34,8 @@ $productosEnCarrito = $carrito->obtenerProductos();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
-    <link rel="stylesheet" href="../Front/estilos/navbar.css">
-    <link rel="stylesheet" href="../Front/estilos/carrito.css">
+    <link rel="stylesheet" href="./estilos/navbarra.css">
+    <link rel="stylesheet" href="./estilos/carrito.css">
 </head>
 
 <body>
@@ -108,7 +108,7 @@ $productosEnCarrito = $carrito->obtenerProductos();
     </div>
 
     <footer>
-        <p>&copy; 2023 Tienda de Informática</p>
+        <p>&copy; 2024 Tienda de Informática</p>
     </footer>
 </body>
 

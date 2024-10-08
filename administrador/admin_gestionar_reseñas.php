@@ -20,7 +20,7 @@ if (isset($_GET['delete'])) {
     <title>Gestionar Reseñas - TechMart</title>
     <link rel="stylesheet" href="carrito.css">
     <link rel="stylesheet" href="../Front\estilos\carrito.css">
-    <link rel="stylesheet" href="../Front\estilos\navbar.css">
+    <link rel="stylesheet" href="../Front\estilos\navbarra.css">
 </head>
 
 <body>

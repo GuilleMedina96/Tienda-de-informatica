@@ -1,0 +1,71 @@
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    /* Mantiene el navbar en la parte superior */
+    top: 0;
+    /* Asegura que esté en la parte superior */
+    z-index: 1000;
+    /* Asegura que esté por encima de otros elementos */
+}
+
+/* Asegúrate de que el nav ocupe el 100% del ancho */
+nav {
+    width: 100%;
+    /* Asegúrate de que el nav ocupe toda la pantalla */
+}
+
+/* Elimina el margen superior del nav */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    /* Centra los elementos horizontalmente */
+    align-items: center;
+    /* Alinea los elementos verticalmente */
+    width: 100%;
+    /* Asegura que el ul ocupe el 100% del ancho */
+}
+
+/* Estilos de los elementos de la lista */
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+    /* Elimina el margen del último elemento */
+}
+
+/* Estilos de los enlaces */
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    /* Añade relleno para aumentar el área de clic */
+    transition: background-color 0.3s ease;
+    /* Animación de hover */
+}
+
+/* Cambiar color al pasar el mouse */
+nav ul li a:hover {
+    background-color: #444;
+    /* Color de fondo al hacer hover */
+    border-radius: 5px;
+    /* Añadir esquinas redondeadas */
+}
+
+/* Estilo para el enlace activo */
+nav ul li.active a {
+    font-weight: bold;
+    background-color: #555;
+    /* Color de fondo para el enlace activo */
+    border-radius: 5px;
+    /* Añadir esquinas redondeadas */
+}

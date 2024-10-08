@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestionar Productos - TechMart</title>
     <link rel="stylesheet" href="../Front\estilos\carrito.css">
-    <link rel="stylesheet" href="../Front\estilos\navbar.css">
+    <link rel="stylesheet" href="../Front\estilos\navbarra.css">
 </head>
 
 <body>

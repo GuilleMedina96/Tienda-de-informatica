@@ -1,7 +1,7 @@
 <?php
 require_once '../Controladores/conexion.php';
-require_once 'usuario.php';
-require_once 'repositorio.php';
+require_once '../php/usuario.php';
+require_once '../php/repositorio.php';
 require_once '../Controladores/verificar_datos.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -107,10 +107,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Informática - Registro</title>
-    <link rel="stylesheet" href="../Front/estilos/registro.css">
+    <link rel="stylesheet" href="./estilos/navbarra.css">
+    <link rel="stylesheet" href="./estilos/registrar.css">
 </head>
 
 <body>
+    <div>
+        <header>
+            <?php include 'navbar.php' ?>
+        </header>
+    </div>
     <main>
         <section class="formulario">
             <h2>Registro de Nuevos Usuarios:</h2>
@@ -146,8 +152,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ?>
             </form>
 
-            <form action="../Front/index.php" method="GET">
-                <button type="submit">Volver al inicio</button>
+            <form action="index.php" method="GET">
+                <button type="submit" id="volver">Volver al inicio</button>
             </form>
         </section>
     </main>

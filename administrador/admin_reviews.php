@@ -7,7 +7,7 @@
     <title>Gestionar Reseñas - TechMart</title>
     <link rel="stylesheet" href="path/to/estilos.css">
     <link rel="stylesheet" href="../Front\estilos\carrito.css">
-    <link rel="stylesheet" href="../Front\estilos\navbar.css">
+    <link rel="stylesheet" href="../Front\estilos\navbarra.css">
 </head>
 
 <body>

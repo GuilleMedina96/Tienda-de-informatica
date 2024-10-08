@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechMart - Tienda de Informática</title>
-    <link rel="stylesheet" href="estilos/navbar.css"> <!-- Asegúrate de que esta ruta sea correcta -->
+    <link rel="stylesheet" href="./estilos/navbarra.css"> <!-- Asegúrate de que esta ruta sea correcta -->
 </head>
 
 <body>
@@ -34,7 +34,7 @@
                     }
                 } else {
                     // Mostrar enlaces para usuarios no autenticados
-                    echo '<li><a href="../php/registro.php">Registro</a></li>';
+                    echo '<li><a href="registro.php">Registro</a></li>';
                     echo '<li><a href="formulario_login.php">Iniciar sesión</a></li>';
                 }
                 ?>

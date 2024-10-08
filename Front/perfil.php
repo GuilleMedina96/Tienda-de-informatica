@@ -61,5 +61,3 @@ if (isset($_SESSION['usuario_id'])) {
 } else {
     echo "Sesión no iniciada. Debes iniciar sesión primero.";
 }
-?>
-
