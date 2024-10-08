@@ -1,0 +1,86 @@
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    /* Color de las etiquetas */
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+form button {
+    background-color: #fd611a;
+    /* Color del botón */
+    color: #fff;
+    /* Color del texto del botón */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #e05a1e;
+    /* Color del botón al pasar el cursor */
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.formulario {
+    max-width: 400px;
+    margin: auto;
+    padding: 50px;
+    background-color: #333;
+    /* Color de fondo del formulario */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.formulario h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fd611a;
+    /* Color del encabezado */
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.mensaje-exito {
+    color: #0aa710;
+    /* Color del texto de éxito */
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    /* Centra el texto horizontalmente */
+}
+
+.mensaje-error {
+    color: #b30404;
+    /* Color del texto de error */
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    /* Centra el texto horizontalmente */
+}
