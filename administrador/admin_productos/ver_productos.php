@@ -1,5 +1,4 @@
 <?php
-session_start(); // Iniciar sesión
 
 require $_SERVER['DOCUMENT_ROOT'] . '/Tienda de informatica/Controladores/conexion.php';
 
@@ -19,7 +18,7 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver Productos</title>
-    <link rel="stylesheet" href="../Front/estilos/ver_productos.css">
+    <link rel="stylesheet" href="./estilos_admin/ver_productos.css">
     <script>
         function confirmarEliminacion() {
             return confirm('¿Estás seguro de que deseas eliminar este producto?');

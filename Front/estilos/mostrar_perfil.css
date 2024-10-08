@@ -7,7 +7,7 @@ body {
 }
 
 /* Estilos para los encabezados h2 y h3 */
-h2{
+h2 {
     color: #000;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
@@ -29,15 +29,18 @@ h3 {
     padding: 15px;
 }
 
-label, input[type="text"], input[type="email"], input[type="password"] {
+label,
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     font-family: 'Times New Roman', Times, serif;
     font-size: 19px;
-    
+
 }
 
 label {
     color: black;
-    margin-top: 10px; 
+    margin-top: 10px;
     text-align: center;
 }
 
@@ -64,7 +67,8 @@ input[type="submit"]:hover {
 }
 
 /* Estilos para formularios generales con clase .form-container y .formulario */
-.form-container, .formulario {
+.form-container,
+.formulario {
     max-width: 400px;
     margin: 0 auto;
 }
@@ -99,22 +103,26 @@ form button:hover {
 .form_clave,
 .form_eliminar {
     max-width: 300px;
-    margin:   5px auto;
-    background-color: #007bff; /* Cambia el color a celeste (#00c3ff) */
-    border: 1px solid #000; /* Agrega un borde negro */
- 
+    margin: 5px auto;
+    background-color: #fd611a;
+    /* Cambia el color a celeste (#00c3ff) */
+    border: 1px solid #000;
+    /* Agrega un borde negro */
+
 }
 
 .form_clave input[type="submit"],
 .form_eliminar input[type="submit"] {
-    background-color:#007bff; /* Cambia el color del botón a celeste (#00c3ff) */
+    background-color: #e05a1e;
+    /* Cambia el color del botón a celeste (#00c3ff) */
     color: #fff;
     border: none;
-    padding: 3px; /* Reduce el tamaño del botón */
+    padding: 3px;
+    /* Reduce el tamaño del botón */
     cursor: pointer;
 }
 
-.form_clave input[type="submit"]:hover,
+s .form_clave input[type="submit"]:hover,
 .form_eliminar input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #e05a1e;
 }

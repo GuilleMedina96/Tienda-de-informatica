@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Producto</title>
-    <link rel="stylesheet" href="..\Front\estilos\agregar_producto.css">
+    <link rel="stylesheet" href="./estilos_admin/agregar_producto.css">
 </head>
 
 <body>

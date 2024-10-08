@@ -91,3 +91,27 @@ form button:hover {
     margin: 10px 0;
     text-align: center;
 }
+
+/* Estilo para el botón usando solo la clase */
+.boton {
+    background-color: #fd611a;
+    /* Color de fondo */
+    color: #fff;
+    /* Color del texto */
+    padding: 10px 20px;
+    /* Relleno */
+    border: none;
+    /* Sin borde */
+    border-radius: 4px;
+    /* Bordes redondeados */
+    cursor: pointer;
+    /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s ease;
+    /* Transición suave */
+}
+
+/* Estilo al pasar el mouse sobre el botón */
+.boton:hover {
+    background-color: #e05a1e;
+    /* Color de fondo al hacer hover */
+}

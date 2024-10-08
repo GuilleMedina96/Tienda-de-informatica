@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    /* Color de fondo oscuro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+}
+
+h1 {
+    margin: 0;
+    color: #fd611a;
+    /* Color naranja para el título */
+    text-align: center;
+    /* Centrar título */
+}
+
+main {
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    /* Fondo blanco para el contenido principal */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    /* Ajustar tamaño de fuente si es necesario */
+    color: #fd611a;
+    /* Color naranja para el subtítulo */
+}
+
+.botones-administracion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.boton {
+    padding: 10px 20px;
+    background-color: #fd611a;
+    /* Color de fondo naranja */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.boton:hover {
+    background-color: #e05c17;
+    /* Color más oscuro al pasar el ratón */
+}
+
+.mensaje-exito {
+    background-color: #d4edda;
+    /* Color de fondo para mensajes de éxito */
+    color: #155724;
+    /* Color del texto para mensajes de éxito */
+    border: 1px solid #c3e6cb;
+    /* Borde del mensaje */
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    /* Centrar el texto del mensaje */
+}
+
+footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 10px;
+    background-color: #fd611a;
+    /* Color de fondo naranja para el pie de página */
+    color: white;
+    width: 100%;
+}

@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\Front\estilos\perfil.css">
-    <link rel="stylesheet" href="..\Front\estilos/navbar.css">
+    <link rel="stylesheet" href="./estilos/mostrar_perfil.css">
+    <link rel="stylesheet" href="./estilos/navbar.css">
     <title>Perfil</title>
 </head>
 

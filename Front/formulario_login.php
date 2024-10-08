@@ -22,11 +22,15 @@
             <input type="text" name="usuario_usuario" placeholder="Nombre de usuario" required><br><br>
 
             <label for="usuario_clave">Contraseña:</label>
-            <input type="password" name="usuario_clave" placeholder="Contraseña" required><br><br>
+            <div style="position: relative;">
+                <input type="password" id="usuario_clave" name="usuario_clave" placeholder="Contraseña" required>
+                <span id="togglePassword">👁️</span>
+            </div><br><br>
+
             <button type="submit">Iniciar Sesión</button>
 
             <?php
-            // Incluimos el archivDo que procesa el inicio de sesión
+            // Incluimos el archivo que procesa el inicio de sesión
             include '../Controladores/procesar_login.php';
 
             if (isset($mensaje_error)) {
@@ -35,10 +39,18 @@
             ?>
 
             <button type="submit"><a href="registro.php" class="button">Registrarse</a></button>
-
-            <button type="submit"><a href="index.php" class="button">Volver al inicio</a></button
-                </form>
+            <button type="submit"><a href="index.php" class="button">Volver al inicio</a></button>
+        </form>
     </main>
+
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('usuario_clave');
+            const passwordType = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', passwordType);
+            this.textContent = passwordType === 'password' ? '👁️' : '👁️‍🗨️'; // Cambiar el ícono
+        });
+    </script>
 </body>
 
 </html>

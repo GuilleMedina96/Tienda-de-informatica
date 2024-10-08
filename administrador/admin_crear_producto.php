@@ -35,14 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <header>
-        <h1>Agregar Nuevo Producto</h1>
-        <nav>
-            <ul>
-                <li><a href="admin_dashboard.php">Inicio</a></li>
-                <li><a href="admin_gestion_producto.php">Gestionar Productos</a></li>
-                <li><a href="cerrar_sesion.php">Cerrar Sesión</a></li>
-            </ul>
-        </nav>
+        <?php
+        include "navbar_admin.php"
+        ?>
     </header>
 
     <main>

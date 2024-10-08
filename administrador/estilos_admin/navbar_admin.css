@@ -1,0 +1,86 @@
+/* Estilos para el header */
+header {
+    background-color: #333;
+    /* Color de fondo oscuro */
+    color: #fff;
+    /* Color de texto blanco */
+    padding: 20px 0;
+    /* Espaciado superior e inferior */
+    text-align: center;
+    /* Alinear el texto al centro */
+    width: 100%;
+    /* Asegúrate de que ocupe todo el ancho */
+    position: relative;
+    /* Posición relativa para el z-index */
+    top: 0;
+    /* Mantener en la parte superior */
+    z-index: 1000;
+    /* Mantener por encima de otros elementos */
+}
+
+/* Estilo del nav */
+nav {
+    width: 100%;
+    /* Asegúrate de que el nav ocupe toda la pantalla */
+}
+
+/* Estilo de la lista de navegación */
+nav ul {
+    list-style: none;
+    /* Sin viñetas */
+    padding: 0;
+    /* Sin padding */
+    margin: 0;
+    /* Sin margen */
+    display: flex;
+    /* Mostrar elementos en fila */
+    justify-content: center;
+    /* Centrar horizontalmente */
+    align-items: center;
+    /* Alinear verticalmente */
+    width: 100%;
+    /* Asegurar que el ul ocupe el 100% del ancho */
+}
+
+/* Estilos de los elementos de la lista */
+nav ul li {
+    margin-right: 20px;
+    /* Margen derecho entre elementos */
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+    /* Eliminar margen del último elemento */
+}
+
+/* Estilos de los enlaces */
+nav ul li a {
+    text-decoration: none;
+    /* Sin subrayado */
+    color: #fff;
+    /* Color de texto blanco */
+    font-size: 18px;
+    /* Tamaño de fuente */
+    padding: 10px 20px;
+    /* Añadir relleno */
+    transition: background-color 0.3s ease;
+    /* Animación de fondo al pasar el mouse */
+}
+
+/* Cambiar color al pasar el mouse */
+nav ul li a:hover {
+    background-color: #444;
+    /* Color de fondo al hacer hover */
+    border-radius: 5px;
+    /* Añadir esquinas redondeadas */
+}
+
+/* Estilo para el enlace activo */
+nav ul li.active a {
+    font-weight: bold;
+    /* Texto en negrita para el enlace activo */
+    background-color: #555;
+    /* Color de fondo para el enlace activo */
+    border-radius: 5px;
+    /* Añadir esquinas redondeadas */
+}

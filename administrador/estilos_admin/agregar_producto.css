@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #333;
+    /* Color de fondo oscuro */
     margin: 0;
     padding: 0;
 }
@@ -9,20 +10,31 @@ body {
     width: 60%;
     margin: 20px auto;
     background-color: #fff;
+    /* Fondo blanco para el contenedor */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    color: #333;
+    font-size: 50px;
+    /* Tamaño de fuente más grande */
     text-align: center;
+    background-color: #fd611a;
+    /* Fondo naranja */
+    color: white;
+    /* Texto blanco */
+    margin: 0;
+    padding: 10px;
+    /* Espaciado para mejorar la apariencia */
 }
 
 label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
+    color: #fd611a;
+    /* Color naranja para las etiquetas */
 }
 
 input[type="text"],
@@ -38,7 +50,8 @@ select {
 }
 
 button {
-    background-color: #5cb85c;
+    background-color: #fd611a;
+    /* Color de fondo naranja */
     color: white;
     padding: 10px 15px;
     border: none;
@@ -50,7 +63,8 @@ button {
 }
 
 button:hover {
-    background-color: #4cae4c;
+    background-color: #e05c17;
+    /* Color más oscuro al pasar el ratón */
 }
 
 .mensaje-exito {
