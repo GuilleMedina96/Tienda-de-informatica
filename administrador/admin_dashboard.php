@@ -37,7 +37,7 @@
 
         <?php
         // Procesar las acciones según el botón presionado
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion'])) {
             switch ($_POST['accion']) {
                 case 'crear_producto':
                     include 'admin_productos/crear_producto.php';

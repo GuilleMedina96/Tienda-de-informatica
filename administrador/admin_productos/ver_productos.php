@@ -19,6 +19,8 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver Productos</title>
     <link rel="stylesheet" href="./estilos_admin/ver_productos.css">
+    <link rel="stylesheet" href="../Front/estilos/carrito.css">
+    <link rel="stylesheet" href="../Front/estilos/navbarra.css">
     <script>
         function confirmarEliminacion() {
             return confirm('¿Estás seguro de que deseas eliminar este producto?');

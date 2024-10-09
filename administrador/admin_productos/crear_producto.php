@@ -1,36 +1,52 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . '/Tienda de informatica/Controladores/conexion.php';
 
-// Verifica si se está enviando el formulario
+if (session_status() === PHP_SESSION_NONE) {
+    session_start(); // Asegúrate de que esto sea lo primero
+} // Asegúrate de que esto sea la primera línea
+
+// Incluir la función de conexión y el repositorio
+require_once '../Controladores/conexion.php';
+require_once '../php/Repositorio.php';
+
+// Crear una nueva conexión
+$conexion = conexion(); // Llamar a tu función de conexión
+$repositorio = new Repositorio($conexion);
+
+// Manejar la solicitud de agregar un nuevo producto
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Inicializar variables y validar entrada
-    $producto_codigo = isset($_POST['producto_codigo']) ? $_POST['producto_codigo'] : null;
-    $producto_nombre = isset($_POST['producto_nombre']) ? $_POST['producto_nombre'] : null;
-    $producto_precio = isset($_POST['producto_precio']) ? $_POST['producto_precio'] : null;
-    $producto_stock = isset($_POST['producto_stock']) ? $_POST['producto_stock'] : null;
-    $producto_foto = isset($_FILES['producto_foto']['name']) ? $_FILES['producto_foto']['name'] : null;
+    // Obtener datos del formulario con verificaciones
+    $codigo = isset($_POST['producto_codigo']) ? $_POST['producto_codigo'] : null;
+    $nombre = isset($_POST['producto_nombre']) ? $_POST['producto_nombre'] : null;
+    $precio = isset($_POST['producto_precio']) ? $_POST['producto_precio'] : null;
+    $stock = isset($_POST['producto_stock']) ? $_POST['producto_stock'] : null;
+    $foto = isset($_FILES['producto_foto']['name']) ? $_FILES['producto_foto']['name'] : null;
     $categoria_id = isset($_POST['categoria_id']) ? $_POST['categoria_id'] : null;
 
-    // Verifica que todos los campos necesarios estén presentes
-    if ($producto_codigo && $producto_nombre && $producto_precio && $producto_stock && $producto_foto && $categoria_id) {
-        // Mover la foto a la carpeta deseada
-        $ruta_foto = '../uploads/' . basename($producto_foto);
+    // Verificar que se hayan recibido todos los datos necesarios
+    if ($codigo && $nombre && $precio && $stock && $foto && $categoria_id) {
+        // Definir la carpeta de destino para las fotos
+        $target_dir = "uploads/"; // Asegúrate de que esta carpeta exista y tenga permisos de escritura
+        $target_file = $target_dir . basename($foto);
 
-        if (move_uploaded_file($_FILES['producto_foto']['tmp_name'], $ruta_foto)) {
-            try {
-                $conn = conexion();
-                $stmt = $conn->prepare("INSERT INTO productos (producto_codigo, producto_nombre, producto_precio, producto_stock, producto_foto, categoria_id) VALUES (?, ?, ?, ?, ?, ?)");
-                $stmt->execute([$producto_codigo, $producto_nombre, $producto_precio, $producto_stock, $producto_foto, $categoria_id]);
+        try {
+            // Mover el archivo subido a la carpeta de destino
+            if (move_uploaded_file($_FILES['producto_foto']['tmp_name'], $target_file)) {
+                // Intentar agregar el producto
+                $resultado = $repositorio->agregarProducto($codigo, $nombre, $precio, $stock, $target_file, $categoria_id);
 
-                echo "<p class='mensaje-exito'>Producto creado exitosamente.</p>";
-            } catch (PDOException $e) {
-                echo "<p class='mensaje-error'>Error al crear el producto: " . htmlspecialchars($e->getMessage()) . "</p>";
+                if ($resultado) {
+                    $_SESSION['mensaje_exito'] = "Producto agregado exitosamente.";
+                } else {
+                    $_SESSION['mensaje_error'] = "No se pudo agregar el producto.";
+                }
+            } else {
+                $_SESSION['mensaje_error'] = "Error al subir la imagen.";
             }
-        } else {
-            echo "<p class='mensaje-error'>Error al subir la foto. Asegúrate de que el archivo sea un formato válido y no exceda el tamaño permitido.</p>";
+        } catch (Exception $e) {
+            $_SESSION['mensaje_error'] = "Error: " . $e->getMessage();
         }
     } else {
-        echo "<p class='mensaje-error'>Por favor, completa todos los campos requeridos.</p>";
+        $_SESSION['mensaje_error'] = "Por favor, completa todos los campos del formulario.";
     }
 }
 ?>
@@ -43,12 +59,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Producto</title>
     <link rel="stylesheet" href="./estilos_admin/agregar_producto.css">
+    <script>
+        function confirmarCreacion() {
+            return confirm("¿Estás seguro de que deseas crear este producto?");
+        }
+    </script>
 </head>
 
 <body>
     <div class="container">
         <h2>Agregar Nuevo Producto</h2>
-        <form action="" method="POST" enctype="multipart/form-data">
+
+        <?php if (isset($_SESSION['mensaje_error'])): ?>
+            <div class="error"><?php echo $_SESSION['mensaje_error'];
+                                unset($_SESSION['mensaje_error']); ?></div>
+        <?php endif; ?>
+
+        <?php if (isset($_SESSION['mensaje_exito'])): ?>
+            <div class="success"><?php echo $_SESSION['mensaje_exito'];
+                                    unset($_SESSION['mensaje_exito']); ?></div>
+        <?php endif; ?>
+
+        <form action="" method="POST" onsubmit="return confirmarCreacion();" enctype="multipart/form-data">
             <label for="producto_codigo">Código del Producto</label>
             <input type="text" id="producto_codigo" name="producto_codigo" required>
 

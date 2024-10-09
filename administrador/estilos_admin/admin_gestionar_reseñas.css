@@ -1,0 +1,63 @@
+/* estilos/admin_gestionar_reseñas.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    /* Color de fondo oscuro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+}
+
+main {
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    /* Fondo blanco para el contenido principal */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+a {
+    color: #fd611a;
+    /* Color naranja para enlaces */
+    text-decoration: none;
+}
+
+
+
+footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 10px;
+    background-color: #fd611a;
+    /* Color de fondo naranja para el pie de página */
+    color: white;
+    width: 100%;
+}

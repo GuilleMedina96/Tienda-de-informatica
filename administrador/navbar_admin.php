@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +21,8 @@ session_start();
             <ul>
                 <li><a href="../Front/index.php">Inicio</a></li>
                 <li><a href="admin_dashboard.php">Productos</a></li>
-                <li><a href="admin_orders.php">Órdenes</a></li>
-                <li><a href="admin_reviews.php">Reseñas</a></li>
+                <li><a href="admin_gestionar_ordenes.php">Órdenes</a></li>
+                <li><a href="admin_gestionar_reseñas.php">Reseñas</a></li>
 
                 <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']): ?>
                     <li><a href="cerrar_sesion.php" onclick="confirmarCierreSesion(event)">Cerrar Sesión</a></li>
