@@ -133,34 +133,53 @@ class Repositorio
         return $stmt->execute([$usuarioID]);
     }
 
-    public function agregarProducto($codigo, $nombre, $precio, $stock, $foto, $categoria_id)
+    public function crearProducto($codigo, $nombre, $precio, $stock, $foto, $categoria_id)
     {
-        // Validar los datos de entrada
-        if (empty($codigo) || empty($nombre) || empty($precio) || empty($stock) || empty($categoria_id)) {
-            throw new Exception("Todos los campos son obligatorios.");
-        }
-
-        // Validar que el precio y stock sean números
-        if (!is_numeric($precio) || !is_numeric($stock)) {
-            throw new Exception("El precio y el stock deben ser numéricos.");
-        }
-
-        // Preparar la consulta SQL para insertar el nuevo producto
-        $sql = "INSERT INTO producto (producto_codigo, producto_nombre, producto_precio, producto_stock, producto_foto, categoria_id) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO productos (codigo, nombre, precio, stock, foto, categoria_id) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->conexion->prepare($sql);
+        $stmt->bind_param("ssdisi", $codigo, $nombre, $precio, $stock, $foto, $categoria_id);
+        return $stmt->execute();
+    }
 
+
+    public function obtenerCategorias()
+    {
+        $sql = "SELECT * FROM categoria";
+        $stmt = $this->conexion->query($sql);
+        $categorias = [];
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $categoria = new Categoria($row['categoria_id'], $row['categoria_nombre']);
+            $categorias[] = $categoria;
+        }
+
+        return $categorias;
+    }
+
+    public function obtenerCategoriaPorId($categoria_id)
+    {
+        $sql = "SELECT * FROM categoria WHERE categoria_id = ?";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute([$categoria_id]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return new Categoria($row['categoria_id'], $row['categoria_nombre']);
+    }
+
+    function eliminarProducto($producto_id)
+    {
         try {
-            // Ejecutar la consulta
-            $stmt->execute([$codigo, $nombre, $precio, $stock, $foto, $categoria_id]);
+            $stmt = $this->conexion->prepare("DELETE FROM producto WHERE producto_id = ?");
+            $stmt->execute([$producto_id]);
 
-            // Verificar si la inserción fue exitosa
             if ($stmt->rowCount() > 0) {
-                return true; // Producto agregado con éxito
+                return true; // Producto eliminado
             } else {
-                return false; // No se pudo agregar el producto
+                return false; // No se eliminó el producto, puede que no exista
             }
         } catch (PDOException $e) {
-            throw new Exception("Error al agregar el producto: " . $e->getMessage());
+            // Manejo de excepciones
+            return false;
         }
     }
 }

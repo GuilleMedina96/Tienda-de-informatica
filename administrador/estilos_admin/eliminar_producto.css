@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    /* Color de fondo oscuro */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 60%;
+    margin: 20px auto;
+    background-color: #fff;
+    /* Fondo blanco para el contenedor */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 50px;
+    /* Tamaño de fuente más grande */
+    text-align: center;
+    background-color: #fd611a;
+    /* Fondo naranja */
+    color: white;
+    /* Texto blanco */
+    margin: 0;
+    padding: 10px;
+    /* Espaciado para mejorar la apariencia */
+}
+
+p {
+    text-align: center;
+    /* Centrar el texto */
+    color: white;
+    /* Color de texto blanco */
+}
+
+table {
+    width: 100%;
+    /* Ancho completo para la tabla */
+    border-collapse: collapse;
+    /* Colapsar bordes de la tabla */
+    margin-bottom: 20px;
+    /* Espacio inferior para separación */
+}
+
+th,
+td {
+    padding: 10px;
+    /* Espaciado en celdas */
+    text-align: left;
+    /* Alinear texto a la izquierda */
+    border-bottom: 1px solid #ddd;
+    /* Bordes inferiores de las celdas */
+}
+
+th {
+    background-color: #fd611a;
+    /* Fondo naranja para encabezados */
+    color: white;
+    /* Texto blanco para encabezados */
+}
+
+img {
+    max-width: 100px;
+    /* Ancho máximo para imágenes */
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #fd611a;
+    /* Color naranja para las etiquetas */
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #fd611a;
+    /* Color de fondo naranja */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #e05c17;
+    /* Color más oscuro al pasar el ratón */
+}
+
+.mensaje-exito {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    /* Espacio inferior para separación */
+}
+
+.mensaje-error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.boton-volver {
+    margin-top: 15px;
+    /* Espacio superior para separación */
+    text-align: center;
+    /* Centrar el botón */
+}
+
+.boton-volver a {
+    text-decoration: none;
+    /* Eliminar el subrayado */
+    color: white;
+    /* Color del texto del enlace */
+}
+
+.input-group {
+    position: relative;
+    /* Posicionar de forma relativa para el ícono */
+    margin-bottom: 15px;
+    /* Espacio inferior entre los inputs */
+}
+
+#contraseña {
+    width: calc(100% - 40px);
+    /* Ancho del input, considerando el tamaño del ícono */
+    padding-right: 40px;
+    /* Espacio para el ícono a la derecha */
+}
+
+.toggle-password {
+    position: absolute;
+    /* Posicionar el ícono absolutamente */
+    right: 10px;
+    /* Espacio desde la derecha */
+    top: 50%;
+    /* Centrar verticalmente */
+    transform: translateY(-50%);
+    /* Ajustar la posición vertical */
+    cursor: pointer;
+    /* Cambiar el cursor al pasar sobre el ícono */
+}

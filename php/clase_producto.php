@@ -1,6 +1,7 @@
 <?php
 
-class Producto {
+class Producto
+{
     private $producto_id;
     private $producto_codigo;
     private $producto_nombre;
@@ -9,7 +10,8 @@ class Producto {
     private $producto_foto;
     private $categoria;  // 
 
-    public function __construct($producto_id, $producto_codigo, $producto_nombre, $producto_precio, $producto_stock, $producto_foto, Categoria $categoria) {
+    public function __construct($producto_id, $producto_codigo, $producto_nombre, $producto_precio, $producto_stock, $producto_foto, Categoria $categoria)
+    {
         $this->producto_id = $producto_id;
         $this->producto_codigo = $producto_codigo;
         $this->producto_nombre = $producto_nombre;
@@ -19,34 +21,37 @@ class Producto {
         $this->categoria = $categoria;
     }
 
-    public function getProductoID() {
+    public function getProductoID()
+    {
         return $this->producto_id;
     }
 
-    public function getProductoCodigo() {
+    public function getProductoCodigo()
+    {
         return $this->producto_codigo;
     }
 
 
-    public function getProductoNombre() {
+    public function getProductoNombre()
+    {
         return $this->producto_nombre;
     }
 
-    public function getProductoPrecio() {
+    public function getProductoPrecio()
+    {
         return $this->producto_precio;
     }
 
-    public function getProductoStock() {
+    public function getProductoStock()
+    {
         return $this->producto_stock;
     }
-
-    public function getProductoFoto() {
+    public function getCategoria()
+    {
+        return $this->categoria; // Retorna la instancia de Categoria
+    }
+    public function getProductoFoto()
+    {
         return $this->producto_foto;
     }
-
-
-
 }
-
-
-?>

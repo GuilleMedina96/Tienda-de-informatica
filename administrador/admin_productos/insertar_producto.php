@@ -1,6 +1,8 @@
 <?php
 // Conectar a la base de datos
-include '../Controladores/conexion.php'; // Asegúrate de que este archivo maneje la conexión correctamente
+require $_SERVER['DOCUMENT_ROOT'] . '/Tienda de informatica/Controladores/conexion.php';
+
+
 
 // Llama a la función de conexión y almacena el resultado
 $conexion = conexion();
@@ -21,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Manejo de la imagen subida
         if (isset($_FILES['foto']) && $_FILES['foto']['error'] == UPLOAD_ERR_OK) {
             $producto_foto = $_FILES['foto']['name'];
-            $ruta_foto = 'C:/xamp/htdocs/Tienda de informatica/Front/img/' . $producto_foto; // Ruta completa
+            $ruta_foto = 'C:/xamp/htdocs/Tienda de informatica/Front/' . $producto_foto; // Ruta completa
 
             // Mover la imagen a la carpeta deseada
             if (move_uploaded_file($_FILES['foto']['tmp_name'], $ruta_foto)) {
@@ -138,6 +140,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             /* Color más oscuro al pasar el ratón */
         }
 
+        .boton-volver a {
+            text-decoration: none;
+            /* Eliminar el subrayado */
+        }
+
         .mensaje-exito {
             color: green;
             font-weight: bold;
@@ -148,6 +155,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             color: red;
             font-weight: bold;
             text-align: center;
+        }
+
+        .btn-volver,
+        .btn-ver-productos {
+            background-color: #4CAF50;
+            /* Verde */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            display: inline-block;
+            margin: 10px 0;
+            /* Margen para separación */
+            width: 48%;
+            /* 48% del ancho para que se ajusten en línea */
+        }
+
+        .btn-volver:hover,
+        .btn-ver-productos:hover {
+            background-color: #45a049;
         }
 
         /* Estilos CSS para la carga de imagen */
@@ -267,6 +297,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <button type="submit">Agregar Producto</button>
         </form>
+
+        <!-- Botones para volver al dashboard y ver todos los productos -->
+        <div class="boton-volver">
+            <a href="../admin_dashboard.php">
+                <button>Volver al Panel de Administración</button>
+            </a>
+        </div>
     </div>
 </body>
 

@@ -1,129 +1,76 @@
-/* ver_productos.css */
-
-/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    /* Fondo claro para la página */
     margin: 0;
     padding: 20px;
 }
 
-/* Contenedor principal */
 .container {
     max-width: 1200px;
     margin: auto;
-    background: #fff;
-    /* Fondo blanco para el contenedor */
     padding: 20px;
-    border-radius: 8px;
-    /* Bordes redondeados */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* Sombra para dar profundidad */
+    background-color: #f8f9fa;
+    /* Color del contenedor */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Títulos */
 h2 {
     text-align: center;
-    /* Centrar el título */
-    color: #333;
-    /* Color de texto más oscuro para el contraste */
+    color: #007bff;
+    /* Color del título */
 }
 
-/* Tabla */
+.mensaje-exito {
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #d1ecf1;
+    /* Color de fondo del mensaje */
+    color: #0c5460;
+    /* Color del texto del mensaje */
+    border: 1px solid #bee5eb;
+    /* Color del borde del mensaje */
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    /* Eliminar espacios entre celdas */
+    /* Quitar el espacio entre celdas */
     margin-top: 20px;
-    /* Margen superior */
+    /* Espacio superior */
 }
 
-/* Estilo de las celdas */
 th,
 td {
-    border: 1px solid #ccc;
-    /* Borde ligero */
-    padding: 10px;
-    /* Relleno */
+    padding: 12px;
+    /* Espacio interno */
     text-align: left;
-    /* Alinear texto a la izquierda */
+    /* Alineación del texto */
+    border-bottom: 1px solid #ddd;
+    /* Borde inferior */
 }
 
-/* Encabezados de la tabla */
 th {
-    background-color: #e9ecef;
-    /* Color de fondo para los encabezados */
-    color: #333;
-    /* Color de texto para el encabezado */
-}
-
-/* Estilo de imágenes */
-td img {
-    max-width: 100px;
-    /* Limitar el ancho de las imágenes */
-    height: auto;
-    /* Mantener la relación de aspecto */
-}
-
-/* Botones */
-.btn-modificar,
-.btn-eliminar {
-    text-decoration: none;
-    /* Sin subrayado */
-    padding: 5px 10px;
-    /* Relleno de botones */
-    color: white;
-    /* Texto blanco */
-    border-radius: 4px;
-    /* Bordes redondeados */
-    transition: background-color 0.3s;
-    /* Transición suave para el color de fondo */
-}
-
-/* Color de los botones de modificar y eliminar */
-.btn-modificar {
-    background-color: #5cb85c;
-    /* Verde */
-}
-
-.btn-eliminar {
-    background-color: #d9534f;
-    /* Rojo */
-}
-
-/* Efecto hover para los botones */
-.btn-modificar:hover {
-    background-color: #4cae4c;
-    /* Verde más oscuro */
-}
-
-.btn-eliminar:hover {
-    background-color: #c9302c;
-    /* Rojo más oscuro */
-}
-
-/* Estilo de la paginación (si es necesario) */
-.pagination {
-    display: flex;
-    justify-content: center;
-    /* Centrar los elementos de paginación */
-    margin-top: 20px;
-    /* Margen superior */
-}
-
-.pagination a {
-    text-decoration: none;
-    padding: 8px 16px;
-    margin: 0 5px;
     background-color: #007bff;
-    /* Color azul para los enlaces de paginación */
+    /* Color de fondo para encabezados */
     color: white;
-    border-radius: 4px;
-    /* Bordes redondeados */
+    /* Color de texto para encabezados */
 }
 
-.pagination a:hover {
-    background-color: #0056b3;
-    /* Color azul más oscuro al pasar el mouse */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+    /* Color de fondo para filas pares */
+}
+
+tr:hover {
+    background-color: #d1ecf1;
+    /* Color de fondo cuando se pasa el mouse */
+}
+
+/* Opcional: puedes añadir un estilo específico para las imágenes */
+.card-img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    /* Bordes redondeados */
 }

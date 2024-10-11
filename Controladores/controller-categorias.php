@@ -1,14 +1,51 @@
 <?php
 require_once 'conexion.php';
 
-
 $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : 'todos';
-$orden = isset($_GET['orden']) && ($_GET['orden'] === 'asc' || $_GET['orden'] === 'desc') ? $_GET['orden'] : '';
+$orden = isset($_GET['orden']) ? $_GET['orden'] : '';
 
 if ($categoria === 'todos') {
-    $query = "SELECT * FROM producto ORDER BY producto_precio $orden";
+    switch ($orden) {
+        case 'asc':
+            $query = "SELECT * FROM producto ORDER BY producto_precio ASC";
+            break;
+        case 'desc':
+            $query = "SELECT * FROM producto ORDER BY producto_precio DESC";
+            break;
+        case 'disponibilidad':
+            $query = "SELECT * FROM producto ORDER BY producto_stock DESC"; // Ordenar por stock disponible
+            break;
+        case 'mas_vendidos':
+            $query = "SELECT * FROM producto ORDER BY ventas DESC"; // Asegúrate de tener un campo 'ventas'
+            break;
+        case 'ultimos_agregados':
+            $query = "SELECT * FROM producto ORDER BY fecha_agregado DESC"; // Asegúrate de tener un campo 'fecha_agregado'
+            break;
+        default:
+            $query = "SELECT * FROM producto"; // Sin orden específico
+            break;
+    }
 } else {
-    $query = "SELECT * FROM producto WHERE categoria_id = :categoria ORDER BY producto_precio $orden";
+    switch ($orden) {
+        case 'asc':
+            $query = "SELECT * FROM producto WHERE categoria_id = :categoria ORDER BY producto_precio ASC";
+            break;
+        case 'desc':
+            $query = "SELECT * FROM producto WHERE categoria_id = :categoria ORDER BY producto_precio DESC";
+            break;
+        case 'disponibilidad':
+            $query = "SELECT * FROM producto WHERE categoria_id = :categoria ORDER BY producto_stock DESC"; // Ordenar por stock disponible
+            break;
+        case 'mas_vendidos':
+            $query = "SELECT * FROM producto WHERE categoria_id = :categoria ORDER BY ventas DESC"; // Asegúrate de tener un campo 'ventas'
+            break;
+        case 'ultimos_agregados':
+            $query = "SELECT * FROM producto WHERE categoria_id = :categoria ORDER BY fecha_agregado DESC"; // Asegúrate de tener un campo 'fecha_agregado'
+            break;
+        default:
+            $query = "SELECT * FROM producto WHERE categoria_id = :categoria"; // Sin orden específico
+            break;
+    }
 }
 
 $conexion = conexion();

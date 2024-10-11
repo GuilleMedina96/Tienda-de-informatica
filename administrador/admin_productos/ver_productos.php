@@ -64,7 +64,7 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <img src="../Front/<?php echo htmlspecialchars($producto['producto_foto']); ?>" alt="Foto de <?php echo htmlspecialchars($producto['producto_nombre']); ?>" width="100">
                         </td>
                         <td>
-                            <a href="admin_productos/modificar_producto.php?producto_id=<?php echo htmlspecialchars($producto['producto_id']); ?>">Modificar</a>
+                            <a class="btn-modificar" href="admin_productos/modificar_producto.php?producto_id=<?php echo htmlspecialchars($producto['producto_id']); ?>">Modificar</a><br><br>
                             <a class="btn-eliminar" href="admin_productos/eliminar_producto.php?producto_id=<?php echo htmlspecialchars($producto['producto_id']); ?>" onclick="return confirmarEliminacion();">Eliminar</a>
                         </td>
                     </tr>

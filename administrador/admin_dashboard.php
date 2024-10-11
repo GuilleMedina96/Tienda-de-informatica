@@ -12,25 +12,16 @@
 
 <body>
     <header>
-        <?php
-        include "navbar_admin.php"
-        ?>
+        <?php include "navbar_admin.php"; ?>
     </header>
 
     <main>
         <h2>Bienvenido, Administrador</h2>
         <p>Desde aquí puedes gestionar los productos, órdenes y reseñas de la tienda.</p>
 
-        <?php if (isset($_SESSION['mensaje_exito'])): ?>
-            <div class="mensaje-exito">
-                <?php echo $_SESSION['mensaje_exito']; ?>
-                <?php unset($_SESSION['mensaje_exito']); ?>
-            </div>
-        <?php endif; ?>
-
         <form action="" method="POST">
             <div class="botones-administracion">
-                <button type="submit" name="accion" value="crear_producto" class="boton">Agregar Nuevo Producto</button>
+                <button type="submit" name="accion" value="crear_producto" class="boton">Nuevo Producto</button>
                 <button type="submit" name="accion" value="ver_productos" class="boton">Ver Todos los Productos</button>
             </div>
         </form>
@@ -40,22 +31,15 @@
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion'])) {
             switch ($_POST['accion']) {
                 case 'crear_producto':
-                    include 'admin_productos/crear_producto.php';
-                    break;
-                case 'modificar_producto':
-                    include 'admin_productos/modificar_producto.php';
-                    break;
-                case 'eliminar_producto':
-                    include 'admin_productos/eliminar_producto.php';
-                    break;
+                    header('Location: admin_productos/insertar_producto.php');
+                    exit(); // Asegúrate de usar exit después de header
                 case 'ver_productos':
-                    include 'admin_productos/ver_productos.php';
-                    break;
-                default:
-                    break;
+                    include('admin_productos/ver_productos.php');
+                    exit();
             }
         }
         ?>
+
     </main>
 
     <footer>
