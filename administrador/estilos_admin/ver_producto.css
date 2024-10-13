@@ -17,7 +17,7 @@ body {
 
 h2 {
     text-align: center;
-    color: #007bff;
+    color: #fd611a;
     /* Color del título */
 }
 
@@ -51,7 +51,7 @@ td {
 }
 
 th {
-    background-color: #007bff;
+    background-color: #ff6a24;
     /* Color de fondo para encabezados */
     color: white;
     /* Color de texto para encabezados */
@@ -63,7 +63,7 @@ tr:nth-child(even) {
 }
 
 tr:hover {
-    background-color: #d1ecf1;
+    background-color: #f88f5f;
     /* Color de fondo cuando se pasa el mouse */
 }
 
@@ -73,4 +73,48 @@ tr:hover {
     height: auto;
     border-radius: 5px;
     /* Bordes redondeados */
+}
+
+.btn-modificar {
+    background-color: #28a745;
+    /* Color verde */
+    color: #fff;
+    /* Color del texto */
+    text-decoration: none;
+    /* Sin subrayado */
+    padding: 10px 15px;
+    /* Espaciado interno */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    display: inline-block;
+    /* Para que el botón respete el padding */
+    font-weight: bold;
+    /* Texto en negrita */
+}
+
+.btn-modificar:hover {
+    background-color: #218838;
+    /* Color verde más oscuro al pasar el ratón */
+}
+
+.btn-eliminar {
+    background-color: #dc3545;
+    /* Color rojo */
+    color: #fff;
+    /* Color del texto */
+    text-decoration: none;
+    /* Sin subrayado */
+    padding: 10px 15px;
+    /* Espaciado interno */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    display: inline-block;
+    /* Para que el botón respete el padding */
+    font-weight: bold;
+    /* Texto en negrita */
+}
+
+.btn-eliminar:hover {
+    background-color: #c82333;
+    /* Color rojo más oscuro al pasar el ratón */
 }

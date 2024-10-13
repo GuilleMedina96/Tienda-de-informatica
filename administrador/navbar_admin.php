@@ -10,14 +10,38 @@ if (session_status() == PHP_SESSION_NONE) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./estilos_admin/navbar_admin.css"> <!-- Asegúrate de apuntar al archivo CSS correcto -->
+
+    <link rel="stylesheet" href="./Front/estilos/navbarra.css"> <!-- Asegúrate de apuntar al archivo CSS correcto -->
     <title>Panel de Administración - TechMart</title>
+    <style>
+        /* CSS para posicionar la imagen en la esquina superior izquierda */
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 180px;
+            height: 130px;
+            z-index: 1000;
+            /* Para asegurarnos de que esté por encima de otros elementos */
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <h1>Panel de Administración - TechMart</h1>
         <nav>
+            <!-- Enlace con la imagen del logo -->
+            <a href="../Front/index.php" class="logo">
+                <img src="../Front/logo2.png" alt="Volver al Inicio">
+            </a>
+
             <ul>
                 <li><a href="../Front/index.php">Inicio</a></li>
                 <li><a href="admin_dashboard.php">Productos</a></li>

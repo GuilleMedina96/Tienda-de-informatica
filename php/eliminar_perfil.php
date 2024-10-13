@@ -51,14 +51,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Front/estilos/registro.css">
+    <link rel="stylesheet" href="../Front/estilos/registrar.css">
     <title>Eliminar Cuenta</title>
 </head>
+
 <body>
-    
+
     <?php if (!empty($mensaje_exito)): ?>
         <p style="color: green;"><?php echo $mensaje_exito; ?></p>
         <a href="../Front/index.php">Volver al índice</a>
@@ -66,16 +68,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p style="color: red;"><?php echo $mensaje_error; ?></p>
     <?php else: ?>
         <form method="POST" onsubmit="return confirmarEliminacion();">
-                            <h2>Eliminar Cuenta</h2>
-              <p>¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.</p>
-              <label for="usuario_clave">Contraseña actual:</label>
-               <input type="password" name="usuario_clave" required>
-               <input type="hidden" name="confirmacion" value="eliminar_cuenta">
-               <input type="submit" class="boton boton-eliminar" value="Eliminar cuenta">
+            <h2>Eliminar Cuenta</h2>
+            <p>¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.</p>
+            <label for="usuario_clave">Contraseña actual:</label>
+            <input type="password" name="usuario_clave" required>
+            <input type="hidden" name="confirmacion" value="eliminar_cuenta">
+            <input type="submit" class="boton boton-eliminar" value="Eliminar cuenta">
         </form>
-    <form action="../Front/mostrar_perfil.php" method="GET">
-    <button type="submit" class="boton boton-volver">Volver atrás</button>
-    </form>
+        <form action="../Front/mostrar_perfil.php" method="GET">
+            <button type="submit" class="boton boton-volver">Volver atrás</button>
+        </form>
 
     <?php endif; ?>
 
@@ -90,4 +92,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
 </body>
+
 </html>

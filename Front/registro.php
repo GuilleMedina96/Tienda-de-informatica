@@ -157,6 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </section>
     </main>
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>

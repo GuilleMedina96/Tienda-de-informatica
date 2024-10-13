@@ -7,7 +7,7 @@
     <title>Panel de Administración - TechMart</title>
     <link rel="stylesheet" href="../Front/estilos/navbarra.css"> <!-- Estilo del navbar -->
     <link rel="stylesheet" href="../Front/estilos/carrito.css"> <!-- Otros estilos -->
-    <link rel="stylesheet" href="./estilos_admin/panel_admin.css"> <!-- Estilos del panel de administración -->
+    <link rel="stylesheet" href="./estilos_admin/panel_administrador.css"> <!-- Estilos del panel de administración -->
 </head>
 
 <body>
@@ -42,9 +42,9 @@
 
     </main>
 
-    <footer>
-        <p>&copy; 2024 TechMart</p>
-    </footer>
+    <?php include 'footer_admin.php'; ?>
+
+
 </body>
 
 </html>

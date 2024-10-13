@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* homes.css */
+
+#product-scroll {
+    display: flex;
+    overflow-x: hidden;
+    padding: 10px 0;
+    scroll-behavior: smooth;
+    justify-content: center;
+    margin: 0 50px;
+    /* Aumenta el margen a 50px */
+}
+
+#product-container {
+    display: flex;
+    max-width: calc(480px * 3 + 20px);
+    /* Ajusta el ancho total a 3 productos más márgenes laterales */
+    transition: transform 0.5s ease;
+    /* Agrega una transición suave */
+}
+
+.product {
+    flex: 0 0 auto;
+    /* Mantiene el tamaño de cada producto */
+    width: 480px;
+    /* Asegúrate de que el ancho sea consistente */
+    margin: 0 10px;
+    /* Margen lateral de 10px para separación entre productos */
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff;
+    border-bottom: outset;
+}
+
+.product img {
+    max-width: 100%;
+    /* Ocupa el 100% del ancho del contenedor */
+    max-height: 150px;
+    /* Aumenta la altura máxima de las imágenes */
+    transition: all .5s;
+}
+
+.product p {
+    margin-top: 5px;
+}
+
+.product:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.40);
+}
+
+.product:hover img {
+    transform: scale(1.2);
+}
+
+h2 {
+    font-size: 30px;
+    text-align: center;
+    background-color: #fd611a;
+    color: white;
+    margin: 0px;
+}
+
+h3 {
+    font-size: 30px;
+    text-align: center;
+    background-color: #fd611a;
+    color: white;
+    margin: 0px;
+}
+
+.button-cat {
+    width: 40%;
+    height: 45px;
+    margin-left: 15px;
+    font-size: 15px;
+    color: white;
+    background-color: #fd611a;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+    cursor: pointer;
+}
+
+/* Estilos de paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pagination-arrow {
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.pagination-arrow a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    background-color: #fd611a;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.pagination-arrow a:hover {
+    background-color: #e06f4d;
+}
+
+.pagination-pages a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    background-color: #fd611a;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.pagination-pages a:hover {
+    background-color: #e06f4d;
+}
+
+.pagination-pages strong {
+    margin: 0 5px;
+    font-weight: bold;
+    color: yellow;
+}

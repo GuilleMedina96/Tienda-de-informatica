@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    /* Color de fondo claro */
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    /* Texto en negrita */
+}
+
+
+/* Estilos para los encabezados h2 */
+h2,
+h3 {
+    color: #fd611a;
+    /* Color naranja */
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Estilos para el formulario de perfil */
+.perfil_form {
+    max-width: 500px;
+    /* Ancho máximo del formulario */
+    margin: 20px auto;
+    /* Centrar formulario */
+    background-color: #fff;
+    /* Fondo blanco */
+    border: 1px solid #fd611a;
+    /* Borde naranja */
+    padding: 20px;
+    /* Espaciado interno */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+}
+
+/* Estilo para las etiquetas */
+label {
+    display: inline-block;
+    /* Las etiquetas se alinean horizontalmente */
+    width: 150px;
+    /* Ancho fijo para etiquetas */
+    margin-bottom: 5px;
+    /* Espaciado inferior */
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"],
+input[type="email"] {
+    width: calc(100% - 25px);
+    /* Ancho completo menos el ancho de la etiqueta y margen */
+    padding: 10px;
+    /* Espaciado interno */
+    margin-bottom: 15px;
+    /* Espaciado inferior */
+
+
+    /* Espaciado a la izquierda */
+}
+
+/* Estilo para botones */
+input[type="submit"] {
+    background-color: #fd611a;
+    /* Color de fondo naranja */
+    color: #fff;
+    /* Color del texto */
+    border: none;
+    /* Sin borde */
+    padding: 10px;
+    /* Espaciado interno */
+    cursor: pointer;
+    /* Cursor en forma de puntero */
+    width: 100%;
+    /* Botón ocupa el 100% del ancho */
+    font-size: 16px;
+    /* Tamaño de fuente */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s;
+    /* Transición suave para el hover */
+}
+
+/* Efecto hover para botones */
+input[type="submit"]:hover {
+    background-color: #e05a1e;
+    /* Color de fondo al pasar el ratón */
+}
+
+/* Estilos específicos para formularios de cambiar contraseña y eliminar cuenta */
+.form_clave,
+.form_eliminar {
+    max-width: 300px;
+    /* Ancho máximo para estos formularios */
+    margin: 20px auto;
+    /* Centrar formularios */
+}
+
+/* Estilos para mensajes de éxito y error */
+.mensaje-exito {
+    color: green;
+    /* Color verde para mensajes de éxito */
+    font-weight: bold;
+    text-align: center;
+}
+
+.mensaje-error {
+    color: red;
+    /* Color rojo para mensajes de error */
+    font-weight: bold;
+    text-align: center;
+}

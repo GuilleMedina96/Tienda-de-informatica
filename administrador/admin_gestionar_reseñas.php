@@ -72,10 +72,7 @@ if (isset($_GET['delete'])) {
             </tbody>
         </table>
     </main>
-
-    <footer>
-        <p>&copy; 2024 TechMart</p>
-    </footer>
+    <?php include 'footer_admin.php'; ?>
 </body>
 
 </html>

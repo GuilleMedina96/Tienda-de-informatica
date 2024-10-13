@@ -7,6 +7,11 @@ session_start();
 
 class Carrito
 {
+    const MSG_CARRITO_VACIO = "El carrito está vacío. No se puede realizar la compra.";
+    const MSG_NO_SUFICIENTE_STOCK = "Error: No hay suficiente stock para uno o más productos.";
+    const MSG_COMPRA_EXITOSA = "Compra registrada correctamente.";
+
+
     private $productos; // Array para almacenar los productos en el carrito.
     public function __construct()
     {
@@ -104,6 +109,16 @@ class Carrito
         }
     }
 
+    // Eliminar un producto del carrito
+    public function eliminarProductoDelCarrito($productoID)
+    {
+        // Verifica si el producto existe en el carrito
+        if (array_key_exists($productoID, $this->productos)) {
+            unset($this->productos[$productoID]); // Elimina el producto
+        }
+    }
+
+
     public function obtenerStockProductoDesdeBD($conexion, $productoID)
     {
         $sql = "SELECT producto_stock FROM producto WHERE producto_id = :productoID";
@@ -120,7 +135,7 @@ class Carrito
 
         return 0;  // Valor predeterminado si no se encuentra el producto o hay un error en la consulta
     }
-
+    /*
     public function finalizarCompra()
     {
         try {
@@ -206,7 +221,100 @@ class Carrito
             // Cerrar la conexión
             $conexion = null;
         }
+    }*/
+
+    public function finalizarCompra()
+    {
+        try {
+            $conexion = conexion();
+            if (empty($this->productos)) {
+                $_SESSION['mensaje'] = self::MSG_CARRITO_VACIO;
+                return;
+            }
+            if ($conexion) {
+                $idUsuario = $_SESSION['usuario_id'];
+                $fechaCompra = date('Y-m-d H:i:s');
+
+                // Traer productos del carrito
+                $productosEnCarrito = $this->obtenerProductos();
+
+                $suficienteStock = true;
+                $conexion->setAttribute(PDO::ATTR_AUTOCOMMIT, false);
+                $conexion->beginTransaction();
+
+                foreach ($productosEnCarrito as $productoData) {
+                    $producto = $productoData['producto'];
+                    $cantidad = $productoData['cantidad'];
+                    $productoID = $producto->getProductoID();
+
+                    // Verificar stock
+                    $stockDisponible = $this->obtenerStockProductoDesdeBD($conexion, $productoID);
+                    if ($stockDisponible >= $cantidad) {
+                        // Actualizar stock
+                        $nuevoStock = $stockDisponible - $cantidad;
+                        $this->actualizarStockProductoEnBD($conexion, $productoID, $nuevoStock);
+                    } else {
+                        $suficienteStock = false;
+                        break;
+                    }
+                }
+
+                if ($suficienteStock) {
+                    $this->insertarCompra($conexion, $idUsuario, $fechaCompra, $productosEnCarrito);
+                    $conexion->commit();
+                    $_SESSION['mensaje'] = self::MSG_COMPRA_EXITOSA;
+                } else {
+                    $conexion->rollBack();
+                    $_SESSION['mensaje'] = self::MSG_NO_SUFICIENTE_STOCK;
+                }
+            } else {
+                $_SESSION['mensaje'] = "Error: No se pudo conectar a la tienda";
+            }
+        } catch (Exception $e) {
+            error_log("Error en finalizarCompra: " . $e->getMessage());
+            $_SESSION['mensaje'] = "Ocurrió un error al procesar su compra. Intente nuevamente.";
+        } finally {
+            $conexion = null;
+        }
     }
+
+    private function insertarCompra($conexion, $idUsuario, $fechaCompra, $productosEnCarrito)
+    {
+        $sqlCompra = "INSERT INTO compras (usuario_id, fecha_hora, finalizar) VALUES (:usuario_id, :fecha_hora, 0)";
+        $stmtCompra = $conexion->prepare($sqlCompra);
+        $stmtCompra->bindParam(':usuario_id', $idUsuario, PDO::PARAM_INT);
+        $stmtCompra->bindParam(':fecha_hora', $fechaCompra);
+
+        if ($stmtCompra->execute()) {
+            $idCompra = $conexion->lastInsertId();
+            foreach ($productosEnCarrito as $productoData) {
+                $producto = $productoData['producto'];
+                $cantidad = $productoData['cantidad'];
+                $productoID = $producto->getProductoID();
+
+                $this->insertarProductoCompra($conexion, $idCompra, $productoID, $cantidad);
+            }
+        } else {
+            throw new Exception("Error al registrar la compra");
+        }
+    }
+
+    private function insertarProductoCompra($conexion, $idCompra, $productoID, $cantidad)
+    {
+        $sqlProductoCompra = "INSERT INTO orden_producto (id_compra, producto_id, cantidad_compra) 
+                              VALUES (:id_compra, :producto_id, :cantidad)";
+        $stmtProductoCompra = $conexion->prepare($sqlProductoCompra);
+        $stmtProductoCompra->bindParam(':id_compra', $idCompra, PDO::PARAM_INT);
+        $stmtProductoCompra->bindParam(':producto_id', $productoID, PDO::PARAM_INT);
+        $stmtProductoCompra->bindParam(':cantidad', $cantidad, PDO::PARAM_INT);
+        if ($stmtProductoCompra->execute() === false) {
+            throw new Exception("Error al insertar producto en nuestro registro");
+        }
+    }
+
+
+
+
 
     public function actualizarStockProductoEnBD($conexion, $productoID, $nuevoStock)
     {

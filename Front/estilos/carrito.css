@@ -1,67 +1,59 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: white;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
+#container-carrito {
+    background-color: #444;
+    /* Fondo del carrito */
+    color: white;
+    /* Color de texto blanco */
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    width: 80%;
+    margin-top: 100px;
+    /* Separar del navbar */
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-}
-
-table,
-th,
-td {
-    border: 1px solid #ccc;
+    margin-bottom: 20px;
 }
 
 th,
 td {
     padding: 10px;
-    text-align: left;
+    text-align: center;
 }
 
-#container-carrito {
-    display: block;
-    background-color: #eee;
-    padding: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-
-.total {
-    margin-top: 20px;
-    text-align: right;
-}
-
-.total p {
-    font-weight: bold;
-}
-
-.total a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #fd611a;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 10px;
-}
-
-.total a:hover {
+th {
     background-color: #555;
+    /* Color del encabezado */
+}
+
+tr:nth-child(even) {
+    background-color: #666;
+    /* Color de fila par */
+}
+
+tr:nth-child(odd) {
+    background-color: #444;
+    /* Color de fila impar */
 }
 
 .foto_carrito {
-    max-width: 100%;
-    max-height: 100px;
+    width: 50px;
+    height: auto;
+}
+
+.total {
+    font-size: 20px;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.boton_vaciar_carrito {
+    background-color: #d9534f;
+    /* Color de botón de vaciar */
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
 }

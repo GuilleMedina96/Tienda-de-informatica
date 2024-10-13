@@ -68,12 +68,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insertar Producto</title>
-    <link rel="stylesheet" href="./administrador/estilos_admin/agregar_producto.css">
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #333;
+            background-color: #fff;
             /* Color de fondo oscuro */
             margin: 0;
             padding: 0;

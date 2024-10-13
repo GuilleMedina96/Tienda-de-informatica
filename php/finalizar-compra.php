@@ -6,5 +6,4 @@ $carrito = isset($_SESSION['carrito']) ? unserialize($_SESSION['carrito']) : new
 
 // Finalizar la compra
 $carrito->finalizarCompra();
-header("Location: vaciar_carrito.php")
-?>
+header("Location: vaciar_carrito.php");

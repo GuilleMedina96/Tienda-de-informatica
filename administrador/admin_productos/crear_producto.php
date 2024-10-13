@@ -9,7 +9,7 @@ $mensaje = ""; // Variable para mensajes
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recibir los datos del formulario
     $producto_codigo = trim($_POST['producto_codigo']);
-    $producto_nombre = trim($_POST['producto_nombre']);
+    $producto_nombre = strtoupper(trim($_POST['producto_nombre'])); // Convertir el nombre a mayúsculas
     $producto_precio = $_POST['producto_precio'];
     $producto_stock = $_POST['producto_stock'];
     $categoria_id = $_POST['categoria_id'];

@@ -28,7 +28,7 @@ if (isset($_SESSION['usuario_id'])) {
                 header("Location: confirmacion_eliminacion.php");
                 exit();
             } else {
-                echo "Error al eliminar la cuenta.";
+                echo "<div class='mensaje-error'>Error al eliminar la cuenta.</div>";
             }
         }
     }
@@ -36,28 +36,25 @@ if (isset($_SESSION['usuario_id'])) {
     $usuario = $repositorio->obtenerUsuarioPorID($usuarioID);
 
     if ($usuario) {
-        // mostramos la información del usuario en un formulario
-        echo '<h2>Información de Usuario</h3>';
-        echo '<form class="perfil_form">';
+        // Mostramos la información del usuario en un formulario
+        echo '<h2>Información de Usuario</h2>';
+        echo '<form class="perfil_form">'; // Cambiar a perfil_form
         echo '<label for="nombre">Nombre:</label>';
-        echo '<input type="text" id="nombre" name="nombre" value="' . $usuario->getNombre() . '" disabled><br>';
+        echo '<input type="text" id="nombre" name="nombre" value="' . htmlspecialchars($usuario->getNombre()) . '" disabled><br>';
 
         echo '<label for="apellido">Apellido:</label>';
-        echo '<input type="text" id="apellido" name="apellido" value="' . $usuario->getApellido() . '" disabled><br>';
+        echo '<input type="text" id="apellido" name="apellido" value="' . htmlspecialchars($usuario->getApellido()) . '" disabled><br>';
 
         echo '<label for="usuario">Usuario:</label>';
-        echo '<input type="text" id="usuario" name="usuario" value="' . $usuario->getUsuario() . '" disabled><br>';
+        echo '<input type="text" id="usuario" name="usuario" value="' . htmlspecialchars($usuario->getUsuario()) . '" disabled><br>';
 
         echo '<label for="email">Email:</label>';
-        echo '<input type="email" id="email" name="email" value="' . $usuario->getEmail() . '" disabled><br>';
+        echo '<input type="email" id="email" name="email" value="' . htmlspecialchars($usuario->getEmail()) . '" disabled><br>';
 
         echo '</form>';
+        // Cierra la conexión después de usarla
+        $conexion = null;
     } else {
-        echo "Usuario no encontrado.";
+        echo "<div class='mensaje-error'>Sesión no iniciada. Debes iniciar sesión primero.</div>";
     }
-
-    // Cierra la conexión después de usarla
-    $conexion = null;
-} else {
-    echo "Sesión no iniciada. Debes iniciar sesión primero.";
 }
