@@ -182,4 +182,18 @@ class Repositorio
             return false;
         }
     }
+
+    function obtenerProductoPorId($producto_id)
+    {
+        global $conn; // Asegúrate de que $conn sea tu conexión a la base de datos
+        $stmt = $conn->prepare("SELECT * FROM productos WHERE producto_id = ?");
+        $stmt->bind_param("i", $producto_id);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
+        if ($resultado->num_rows > 0) {
+            return $resultado->fetch_assoc(); // Retorna la fila como un array asociativo
+        }
+        return null; // Producto no encontrado
+    }
 }

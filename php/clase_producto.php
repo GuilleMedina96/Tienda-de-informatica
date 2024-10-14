@@ -9,8 +9,9 @@ class Producto
     private $producto_stock;
     private $producto_foto;
     private $categoria;  // 
+    private $descripcion; // Agregado el campo descripción
 
-    public function __construct($producto_id, $producto_codigo, $producto_nombre, $producto_precio, $producto_stock, $producto_foto, Categoria $categoria)
+    public function __construct($producto_id, $producto_codigo, $producto_nombre, $producto_precio, $producto_stock, $producto_foto, Categoria $categoria, $descripcion = null) // Acepta descripción opcional
     {
         $this->producto_id = $producto_id;
         $this->producto_codigo = $producto_codigo;
@@ -19,6 +20,7 @@ class Producto
         $this->producto_stock = $producto_stock;
         $this->producto_foto = $producto_foto;
         $this->categoria = $categoria;
+        $this->descripcion = $descripcion; // Inicializa el campo descripción
     }
 
     public function getProductoID()
@@ -30,7 +32,6 @@ class Producto
     {
         return $this->producto_codigo;
     }
-
 
     public function getProductoNombre()
     {
@@ -46,12 +47,19 @@ class Producto
     {
         return $this->producto_stock;
     }
+
     public function getCategoria()
     {
         return $this->categoria; // Retorna la instancia de Categoria
     }
+
     public function getProductoFoto()
     {
         return $this->producto_foto;
+    }
+
+    public function getDescripcion() // Método para obtener la descripción
+    {
+        return $this->descripcion;
     }
 }

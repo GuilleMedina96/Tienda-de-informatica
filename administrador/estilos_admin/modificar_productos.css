@@ -37,16 +37,35 @@ label {
     /* Color naranja para las etiquetas */
 }
 
+/* Estilo unificado para campos de formulario */
 input[type="text"],
 input[type="number"],
 input[type="file"],
-select {
+select,
+textarea {
+    /* Incluir textarea en el grupo */
     width: 100%;
-    padding: 8px;
+    /* Ancho completo */
+    padding: 10px;
+    /* Espaciado interno */
     margin-top: 5px;
+    /* Espacio superior */
     margin-bottom: 10px;
+    /* Espacio inferior */
     border: 1px solid #ccc;
+    /* Borde */
     border-radius: 4px;
+    /* Bordes redondeados */
+    box-sizing: border-box;
+    /* Incluir padding y borde en el ancho total */
+}
+
+/* Estilo específico para el textarea */
+textarea {
+    height: 100px;
+    /* Altura del textarea */
+    resize: vertical;
+    /* Permitir solo el redimensionamiento vertical */
 }
 
 button {
@@ -60,6 +79,7 @@ button {
     font-size: 16px;
     display: block;
     width: 100%;
+    /* Ancho completo */
 }
 
 button:hover {
@@ -91,4 +111,18 @@ button:hover {
 .boton-volver a {
     text-decoration: none;
     /* Eliminar el subrayado */
+}
+
+/* Estilo para el textarea al hacer foco */
+input[type="text"],
+input[type="number"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }

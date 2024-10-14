@@ -1,4 +1,5 @@
 <?php
+
 require_once 'conexion.php';
 
 // Conectar a la base de datos
@@ -14,11 +15,12 @@ if ($categoria_id) {
     $productos_stmt = $conexion->prepare($productos_query);
     $productos_stmt->bindParam(':categoria_id', $categoria_id, PDO::PARAM_INT);
 } else {
-    // Cargar productos de las categorías con id 6 y 7
-    $productos_query = "SELECT * FROM producto WHERE categoria_id IN (6, 7)";
+    // Cargar productos de las categorías con id 1 a 7
+    $productos_query = "SELECT * FROM producto WHERE categoria_id IN (1, 2, 3, 4, 5, 6, 7)";
     $productos_stmt = $conexion->prepare($productos_query);
 }
 
+// Ejecutar la consulta
 $productos_stmt->execute();
 $productos = $productos_stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -43,7 +45,10 @@ if (count($productos_pagina) > 0) {
         echo '<p>' . htmlspecialchars($producto['producto_nombre']) . '</p>';
         echo '<p>Precio: $' . htmlspecialchars($producto['producto_precio']) . '</p>';
         echo '<p>Stock: ' . htmlspecialchars($producto['producto_stock']) . '</p>';
-        echo '<form><button class="button-cat" formaction="productos_por_categoria.php?categoria_id=' . $producto['categoria_id'] . '">Ver Más</button></form>';
+        echo '<form action="detalle_producto.php" method="get">';
+        echo '<input type="hidden" name="producto_id" value="' . $producto['producto_id'] . '">'; // Asegúrate de tener producto_id
+        echo '<button class="button-cat" type="submit">Ver Más</button>';
+        echo '</form>';
         echo '</div>'; // Cierra div de producto
     }
 } else {

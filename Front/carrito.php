@@ -48,7 +48,7 @@ $productosEnCarrito = $carrito->obtenerProductos();
     <title>Carrito de Compras</title>
     <link rel="stylesheet" href="./estilos/navbarra.css">
     <link rel="stylesheet" href="estilos/carrito.css">
-    <link rel="stylesheet" href="estilos/modal.css">
+    <link rel="stylesheet" href="estilos/modall.css">
 
 </head>
 
@@ -113,11 +113,13 @@ $productosEnCarrito = $carrito->obtenerProductos();
     </div>
     <main>
         <!-- Modal -->
+        <!-- Modal -->
         <div id="miModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <form action="procesar_pago.php" method="POST" id="formPago" class="form_pago">
-                    <label for="metodo_pago" class="label_pago">Método de Pago:</label>
+
+                    <h3 class="titulo_pago">Método de Pago:</h3>
                     <select name="metodo_pago" id="metodo_pago" class="select_pago" required>
                         <option value="0">Seleccione el método de pago</option>
                         <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
@@ -125,6 +127,7 @@ $productosEnCarrito = $carrito->obtenerProductos();
                         <option value="Transferencia Bancaria">Transferencia Bancaria</option>
                     </select>
 
+                    <!-- Tarjeta de Crédito/Débito -->
                     <div id="credit-card-info" class="credit-card-info" style="display: none;">
                         <h3 class="titulo_pago">Detalles de la Tarjeta</h3>
 
@@ -147,6 +150,23 @@ $productosEnCarrito = $carrito->obtenerProductos();
                             <label for="codigo_seguridad" class="label_pago">Código de Seguridad:</label>
                             <input type="text" name="codigo_seguridad" class="codigo-seguridad" maxlength="3" required>
                         </div>
+                        <!-- Campos de Envío Agregados -->
+                        <h3 class="label_pago">Detalles de Envío</h3>
+
+                        <label for="direccion_envio" class="label_pago">Dirección de Envío:</label>
+                        <input type="text" name="direccion_envio" class="input-tarjeta" placeholder="Ingrese su dirección" required>
+
+                        <div class="contenedor-envio">
+                            <div class="input_envio">
+                                <label for="ciudad_envio" class="label_pago">Ciudad:</label>
+                                <input type="text" name="ciudad_envio" class="input-tarjeta" placeholder="Ingrese su ciudad" required>
+                            </div>
+                            <div class="input_envio">
+                                <label for="codigo_postal" class="label_pago">Código Postal:</label>
+                                <input type="text" name="codigo_postal" class="input-tarjeta" placeholder="Ingrese su código postal" required>
+                            </div>
+                        </div>
+
 
                         <label for="cuotas" class="label_pago" id="label_cuotas" style="display: none;">Selecciona Cuotas:</label>
                         <select name="cuotas" id="cuotas" style="display: none;">
@@ -156,6 +176,8 @@ $productosEnCarrito = $carrito->obtenerProductos();
                             <option value="12">12 cuotas</option>
                         </select>
                     </div>
+
+                    <!-- Transferencia Bancaria -->
                     <div id="transferencia-info" style="display: none;">
                         <h3 class="titulo_pago">Detalles para Transferencia Bancaria</h3>
                         <p><strong>CBU:</strong> 1234567890123456789012</p>
@@ -165,10 +187,12 @@ $productosEnCarrito = $carrito->obtenerProductos();
                         <p><strong>Monto a Transferir:</strong> $<?php echo number_format($carrito->calcularTotal(), 2); ?></p>
                         <p><strong>Es importante enviar el comprobante de la transferencia.</strong></p>
                     </div>
+
                     <button type="submit" class="boton_pago">Confirmar Pago</button>
                 </form>
             </div>
         </div>
+
     </main>
     <?php include 'footer.php'; ?>
     <script>

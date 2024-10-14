@@ -1,4 +1,5 @@
 <?php
+
 require 'conexion.php';
 require '../php/usuario.php';
 require '../Controladores/verificar_datos.php';
@@ -6,7 +7,7 @@ require '../Controladores/verificar_datos.php';
 // Obtiene una instancia de PDO usando la función conexion()
 $conexion = conexion();
 
-// session_start(); // Inicia la sesión al inicio del script
+//session_start(); // Inicia la sesión al inicio del script
 
 $mensaje_error = ''; // Variable para almacenar mensajes de error
 

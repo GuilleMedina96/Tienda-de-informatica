@@ -1,8 +1,6 @@
 <?php
-// Conectar a la base de datos
+
 require $_SERVER['DOCUMENT_ROOT'] . '/Tienda de informatica/Controladores/conexion.php';
-
-
 
 // Llama a la función de conexión y almacena el resultado
 $conexion = conexion();
@@ -14,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $producto_nombre = trim($_POST['producto_nombre']);
     $producto_precio = $_POST['producto_precio'];
     $producto_stock = $_POST['producto_stock'];
+    $descripcion = trim($_POST['descripcion']); // Añadido: recibir la descripción
     $categoria_id = $_POST['categoria_id'];
 
     // Validar los datos
@@ -28,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Mover la imagen a la carpeta deseada
             if (move_uploaded_file($_FILES['foto']['tmp_name'], $ruta_foto)) {
                 // Preparar la consulta SQL para insertar
-                $sql = "INSERT INTO producto (producto_codigo, producto_nombre, producto_precio, producto_stock, producto_foto, categoria_id) VALUES (?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO producto (producto_codigo, producto_nombre, producto_precio, producto_stock, producto_foto, categoria_id, descripcion) VALUES (?, ?, ?, ?, ?, ?, ?)"; // Añadido: campo descripción
 
                 // Preparar y ejecutar la declaración
                 $stmt = $conexion->prepare($sql);
@@ -39,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $stmt->bindParam(4, $producto_stock);
                     $stmt->bindParam(5, $producto_foto);
                     $stmt->bindParam(6, $categoria_id);
+                    $stmt->bindParam(7, $descripcion); // Añadido: enlazar descripción
 
                     if ($stmt->execute()) {
                         $mensaje = "Producto insertado correctamente.";
@@ -60,7 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conexion = null; // Cierra la conexión
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -113,7 +112,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         input[type="text"],
         input[type="number"],
         input[type="file"],
-        select {
+        select,
+        textarea {
             width: 100%;
             padding: 8px;
             margin-top: 5px;
@@ -284,6 +284,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <label for="producto_stock">Stock del Producto</label>
             <input type="number" id="producto_stock" name="producto_stock" required>
+
+            <label for="descripcion">Descripción del Producto</label>
+            <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
 
             <div class="prevPhoto">
                 <span class="delPhoto notBlock">X</span>

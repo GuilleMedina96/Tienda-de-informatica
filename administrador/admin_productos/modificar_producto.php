@@ -33,11 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $producto_nombre = $_POST['producto_nombre'];
     $producto_precio = $_POST['producto_precio'];
     $producto_stock = $_POST['producto_stock'];
-    $producto_foto = $_POST['producto_foto']; // Nuevo campo para foto
+    $producto_foto = $_POST['producto_foto']; // Campo para foto
+    $descripcion = $_POST['descripcion']; // Campo para descripción
 
     // Actualizar el producto en la base de datos
-    $stmt = $conn->prepare("UPDATE producto SET producto_codigo = ?, producto_nombre = ?, producto_precio = ?, producto_stock = ?, producto_foto = ? WHERE producto_id = ?");
-    $stmt->execute([$producto_codigo, $producto_nombre, $producto_precio, $producto_stock, $producto_foto, $producto_id]);
+    $stmt = $conn->prepare("UPDATE producto SET producto_codigo = ?, producto_nombre = ?, producto_precio = ?, producto_stock = ?, producto_foto = ?, descripcion = ? WHERE producto_id = ?");
+    $stmt->execute([$producto_codigo, $producto_nombre, $producto_precio, $producto_stock, $producto_foto, $descripcion, $producto_id]);
 
     // Establecer un mensaje de éxito
     $mensaje_exito = "Producto actualizado correctamente.";
@@ -52,14 +53,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar Producto</title>
     <link rel="stylesheet" href="../Front/estilos/ver_productos.css"> |
-    <link rel="stylesheet" href="..\estilos_admin\modificar_producto.css">
+    <link rel="stylesheet" href="..\estilos_admin\modificar_productos.css">
     <!-- Ajusta la ruta si es necesario -->
     <script>
         function confirmarActualizacion() {
             return confirm("¿Estás seguro de que deseas actualizar este producto?");
         }
     </script>
-
 </head>
 
 <body>
@@ -96,6 +96,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="producto_foto">Foto:</label>
                 <input type="text" id="producto_foto" name="producto_foto" value="<?php echo htmlspecialchars($producto['producto_foto']); ?>" required>
             </div>
+
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" required placeholder="Ingresa la descripción del producto..."><?php echo htmlspecialchars($producto['descripcion']); ?></textarea>
+            </div>
+
 
             <button type="submit">Actualizar Producto</button>
         </form>

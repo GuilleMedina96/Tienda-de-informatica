@@ -1,3 +1,10 @@
+<?php
+// Iniciar sesión al principio del archivo
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,7 +12,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechMart - Tienda de Informática</title>
-    <link rel="stylesheet" href="./estilos/navbarra.css"> <!-- Asegúrate de que esta ruta sea correcta -->
+    <link rel="stylesheet" href="./estilos/navbarras.css">
+    <link rel="stylesheet" href="./estilos/barra_busquedas.css"><!-- Asegúrate de que esta ruta sea correcta -->
     <style>
         /* CSS para posicionar la imagen en la esquina superior izquierda */
         .logo {
@@ -13,15 +21,29 @@
             top: 10px;
             left: 10px;
             width: 180px;
-            height: 130px;
+            height: 150px;
             z-index: 1000;
-            /* Para asegurarnos de que esté por encima de otros elementos */
         }
 
         .logo img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+
+        /* Estilos para el formulario de búsqueda */
+        .search-form {
+            margin: 20px 0;
+        }
+
+        .search-form input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            /* Ajusta el ancho según tu preferencia */
+        }
+
+        .search-form button {
+            padding: 8px;
         }
     </style>
 </head>
@@ -34,6 +56,13 @@
         </a>
 
         <h1>TechMart - Tienda de Informática</h1>
+
+        <!-- Formulario de búsqueda -->
+        <form id="search-form" class="search-form" method="GET" action="buscar_productos.php">
+            <input type="text" id="search-input" name="query" placeholder="Buscar productos..." required>
+            <button type="submit">Buscar</button>
+        </form>
+
         <nav>
             <ul>
                 <li><a href="index.php">Inicio</a></li>

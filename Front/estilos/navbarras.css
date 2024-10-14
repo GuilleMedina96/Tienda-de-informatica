@@ -1,16 +1,43 @@
 header {
     background-color: #333;
     color: #fff;
-    padding: 20px 0;
+    padding: 10px 0;
+    /* Reducido de 20px a 10px */
     text-align: center;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
-    /* Mantiene el navbar en la parte superior */
     top: 0;
-    /* Asegura que esté en la parte superior */
     z-index: 1000;
-    /* Asegura que esté por encima de otros elementos */
 }
+
+h1 {
+    margin: 0;
+    /* Eliminar margen superior para acercarlo más al header */
+    padding: 5px 0;
+    /* Puedes ajustar el padding si lo deseas */
+}
+
+/* Ajustes en el nav */
+nav {
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    padding: 5px 0;
+    /* Puedes ajustar este padding si lo deseas */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Otros estilos permanecen igual... */
+
 
 /* Asegúrate de que el nav ocupe el 100% del ancho */
 nav {
@@ -19,18 +46,7 @@ nav {
 }
 
 /* Elimina el margen superior del nav */
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    /* Centra los elementos horizontalmente */
-    align-items: center;
-    /* Alinea los elementos verticalmente */
-    width: 100%;
-    /* Asegura que el ul ocupe el 100% del ancho */
-}
+
 
 /* Estilos de los elementos de la lista */
 nav ul li {
