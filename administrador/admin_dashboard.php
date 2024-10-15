@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración - TechMart</title>
-    <link rel="stylesheet" href="../Front/estilos/navbarra.css"> <!-- Estilo del navbar -->
+    <link rel="stylesheet" href="./estilos_admin/navbar_admin.css"> <!-- Estilo del navbar -->
     <link rel="stylesheet" href="../Front/estilos/carrito.css"> <!-- Otros estilos -->
     <link rel="stylesheet" href="./estilos_admin/panel_administrador.css"> <!-- Estilos del panel de administración -->
 </head>

@@ -37,6 +37,8 @@ if (session_status() == PHP_SESSION_NONE) {
     <header>
         <h1>Panel de Administración - TechMart</h1>
         <nav>
+
+
             <!-- Enlace con la imagen del logo -->
             <a href="../Front/index.php" class="logo">
                 <img src="../Front/logo2.png" alt="Volver al Inicio">

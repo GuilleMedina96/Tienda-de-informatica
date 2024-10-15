@@ -39,7 +39,7 @@ $ordenes = $conexion->query($sql); // Verifica si se obtienen órdenes
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestionar Órdenes - TechMart</title>
     <link rel="stylesheet" href="../Front/estilos/carrito.css">
-    <link rel="stylesheet" href="../Front/estilos/navbarra.css">
+    <link rel="stylesheet" href="./estilos_admin/navbar_admin.css"> <!-- Estilo del navbar -->
     <link rel="stylesheet" href="./estilos_admin/admin_gest_ordenes.css">
 </head>
 
