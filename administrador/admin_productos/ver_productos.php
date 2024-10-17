@@ -38,6 +38,7 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="./estilos_admin/ver_productos.css">
     <link rel="stylesheet" href="../Front/estilos/carrito.css">
     <link rel="stylesheet" href="../Front/estilos/navbarra.css">
+    <link rel="stylesheet" href="./estilos_admin/admin_buscar_productos.css">
     <script>
         function confirmarEliminacion() {
             return confirm('¿Estás seguro de que deseas eliminar este producto?');

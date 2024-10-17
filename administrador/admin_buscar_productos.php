@@ -7,86 +7,7 @@
     <title>Resultados de Búsqueda - TechMart</title>
     <link rel="stylesheet" href="./estilos_admin/navbar_admin.css">
     <link rel="stylesheet" href="../front/estilos/homes.css">
-    <!-- <link rel="stylesheet" href="../front/estilos/buscar.css"> -->
-
-    <style>
-        /* Estilo para la cuadrícula de productos */
-        #product-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 90%;
-        }
-
-        .product {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .button-cat {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 10px;
-            /* Espacio entre botones */
-        }
-
-        .button-cat:hover {
-            background-color: #45a049;
-        }
-
-        /* Estilo para los botones de modificar y eliminar */
-        .button-modificar,
-        .button-eliminar {
-            background-color: #007bff;
-            /* Color para el botón de modificar */
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 5px;
-            /* Espacio entre botones */
-        }
-
-        .button-modificar:hover {
-            background-color: #0056b3;
-            /* Color al pasar el mouse */
-        }
-
-        .button-eliminar {
-            background-color: #dc3545;
-            /* Color para el botón de eliminar */
-        }
-
-        .button-eliminar:hover {
-            background-color: #c82333;
-            /* Color al pasar el mouse */
-        }
-
-        /* Estilo para la paginación */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .pagination a {
-            margin: 0 5px;
-            text-decoration: none;
-            color: #007bff;
-        }
-
-        .pagination a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="./estilos_admin/admin_buscar_productos.css">
 </head>
 
 <body>
@@ -105,7 +26,7 @@
         $query = isset($_GET['query']) ? $_GET['query'] : '';
 
         // Paginación
-        $productosPorPagina = 9;
+        $productosPorPagina = 6;
         $paginaActual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
         $offset = ($paginaActual - 1) * $productosPorPagina;
 
@@ -138,24 +59,32 @@
                 if (count($productos) > 0) {
                     foreach ($productos as $producto) {
                         echo '<div class="product">';
-                        echo '<img src="' . ($producto['producto_foto']) . '" alt="' . htmlspecialchars($producto['producto_nombre']) . '">';
+
+                        if (!empty($producto['producto_foto'])) {
+                            // Ruta relativa de la carpeta donde se encuentran las imágenes
+                            $ruta_imagen = '../Front/' . htmlspecialchars($producto['producto_foto']);
+
+                            // Mostrar la imagen del producto
+                            echo '<img src="' . htmlspecialchars($ruta_imagen) . '" alt="Imagen de ' . htmlspecialchars($producto['producto_nombre']) . '"><br>';
+                        } else {
+                            echo '<p>Sin imagen disponible.</p>'; // Mensaje si no hay imagen
+                        }
+
                         echo '<p>' . htmlspecialchars($producto['producto_nombre']) . '</p>';
                         echo '<p>Precio: $' . htmlspecialchars($producto['producto_precio']) . '</p>';
                         echo '<p>Stock: ' . htmlspecialchars($producto['producto_stock']) . '</p>';
 
-
-
-                        echo '<form style="display:inline;" method="GET" action="./admin_productos/modificar_producto.php">';
+                        echo '<form style="display:inline;" method="" action="./admin_productos/modificar_producto.php">';
                         echo '<input type="hidden" name="producto_id" value="' . htmlspecialchars($producto['producto_id']) . '">';
                         echo '<button type="submit" class="button-modificar">Modificar</button>';
                         echo '</form>';
 
-                        echo '<form style="display:inline;" method="GET" action="./admin_productos/eliminar_producto.php" onsubmit="return confirm(\'¿Está seguro de que desea eliminar este producto?\');">';
+                        echo '<form style="display:inline;" method="" action="./admin_productos/eliminar_producto.php" onsubmit="return confirm(\'¿Está seguro de que desea eliminar este producto?\');">';
                         echo '<input type="hidden" name="producto_id" value="' . htmlspecialchars($producto['producto_id']) . '">';
                         echo '<button type="submit" class="button-eliminar">Eliminar</button>';
                         echo '</form>';
 
-                        echo '</div>';
+                        echo '</div>'; // Cierre de div.product
                     }
                 } else {
                     echo '<p>No se encontraron productos que coincidan con la búsqueda.</p>';

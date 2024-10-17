@@ -1,0 +1,185 @@
+/* Estilo para la cuadrícula de productos */
+#product-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas */
+    gap: 20px;
+    /* Espacio entre las tarjetas */
+    margin: 20px auto;
+    /* Margen automático */
+    width: 90%;
+    /* Ancho del contenedor */
+}
+
+/* Alinear el botón de volver y la paginación */
+.boton-volver,
+.pagination {
+    grid-column: span 3;
+    /* Para que se extienda a lo largo de las tres columnas */
+    text-align: center;
+    /* Centra el contenido */
+    margin: 20px 0;
+    /* Espacio alrededor */
+}
+
+/* Otros estilos de productos */
+.product {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Estilo de botones */
+.button-cat,
+.button-modificar,
+.button-eliminar {
+    padding: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.button-modificar,
+.button-eliminar {
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.button-modificar {
+    background-color: #28a745;
+    /* Color para el botón de modificar */
+}
+
+.button-modificar:hover {
+    background-color:
+        #218838;
+    /* Color al pasar el mouse */
+}
+
+.button-eliminar {
+    background-color: #dc3545;
+    /* Color para el botón de eliminar */
+}
+
+.button-eliminar:hover {
+    background-color: #c82333;
+    /* Color al pasar el mouse */
+}
+
+/* Estilo para la paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    text-decoration: underline;
+    background-color: #f0f0f0;
+}
+
+.boton-volver {
+    display: flex;
+    /* Habilitar flxbox */
+
+    /* Centrar horizontalmente */
+    align-items: center;
+    /* Centrar verticalmente (si es necesario) */
+    margin: 20px 0;
+    /* Margen superior e inferior */
+}
+
+.boton-volver button {
+    background-color: #fd611a;
+    /* Color naranja */
+    color: white;
+    /* Color del texto */
+    border: none;
+    /* Sin borde */
+    padding: 10px 20px;
+    /* Espaciado */
+    cursor: pointer;
+    /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s;
+    /* Efecto de transición */
+}
+
+.boton-volver button:hover {
+    background-color: #e96e28;
+    /* Color más oscuro al pasar el mouse */
+}
+
+.search-form {
+    display: flex;
+    /* Utiliza flexbox para alinear los elementos */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    justify-content: center;
+    /* Centra horizontalmente los elementos */
+    margin-bottom: 20px;
+    /* Espacio debajo del formulario */
+}
+
+.search-form input[type="text"] {
+    flex-grow: 1;
+    /* El campo de texto ocupa el espacio restante */
+    min-width: 400px;
+    /* Ancho mínimo */
+    padding: 10px;
+    /* Espaciado interno */
+    border: 1px solid #ccc;
+    /* Borde gris claro */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    font-size: 16px;
+    /* Tamaño de fuente */
+}
+
+.search-form button {
+    padding: 10px 20px;
+    /* Espaciado interno para el botón */
+    margin-left: 10px;
+    /* Espacio a la izquierda del botón */
+    background-color: #fd611a;
+    /* Color de fondo del botón */
+    color: white;
+    /* Color del texto */
+    border: none;
+    /* Sin borde */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    cursor: pointer;
+    /* Cambia el cursor al pasar el mouse */
+    font-size: 16px;
+    /* Tamaño de fuente */
+    transition: background-color 0.3s;
+    /* Efecto de transición al pasar el mouse */
+}
+
+.search-form button:hover {
+    background-color: #e05c17;
+    /* Color más oscuro al pasar el mouse */
+}

@@ -5,19 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="./estilos/navbarra.css">
-    <link rel="stylesheet" href="estilos/loggin.css">
+    <link rel="stylesheet" href="./estilos/navbarras.css">
+    <link rel="stylesheet" href="./estilos/logginn.css">
+    <link rel="stylesheet" href="./estilos/barra_busquedas.css">
 
 </head>
 
 <body>
     <header>
         <?php
-        include "navbar.php";
+        require './navbar.php';
         ?>
     </header>
     <main>
-        <form action="" method="POST"> <!-- action vacío para que se redirija a la misma página y procesemos el login -->
+        <form class="login" action="" method="POST"> <!-- action vacío para que se redirija a la misma página y procesemos el login -->
             <h1>Iniciar Sesión</h1>
             <label for="usuario_usuario">Usuario:</label>
             <input type="text" name="usuario_usuario" placeholder="Nombre de usuario" required><br><br>
@@ -52,6 +53,10 @@
             this.textContent = passwordType === 'password' ? '👁️' : '👁️‍🗨️'; // Cambiar el ícono
         });
     </script>
+    <?php
+    include "./footer.php";
+
+    ?>
 </body>
 
 </html>

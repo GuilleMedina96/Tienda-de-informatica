@@ -30,21 +30,6 @@ if (session_status() == PHP_SESSION_NONE) {
             height: 100%;
             object-fit: contain;
         }
-
-        /* Estilos para el formulario de búsqueda */
-        .search-form {
-            margin: 20px 0;
-        }
-
-        .search-form input[type="text"] {
-            padding: 8px;
-            width: 200px;
-            /* Ajusta el ancho según tu preferencia */
-        }
-
-        .search-form button {
-            padding: 8px;
-        }
     </style>
 </head>
 
